@@ -2,12 +2,39 @@
 <resources>
     <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string-array name="days">
+        <item>m,w,f</item>
+        <item>t,th</item>
+    </string-array>
     <string-array name="lab_array">
         <item>Nested Loop Lab</item>
     </string-array>
     <string-array name="login_array">
         <item>student</item>
         <item>professor</item>
+    </string-array>
+    <string-array name="term">
+        <item>Fall2014</item>
+        <item>Spring2015</item>
+        <item>Summer2015</item>
+        <item>Fall2015</item>
+    </string-array>
+    <string-array name="time">
+        <item>8:00am-8:50am</item>
+        <item>8:00am-9:15am</item>
+        <item>9:05am-9:55am</item>
+        <item>9:30am-10:45am</item>
+        <item>10:10am-11:00am</item>
+        <item>11:00am-12:15am</item>
+        <item>11:15am-12:05pm</item>
+        <item>12:20pm-1:10pm</item>
+        <item>1:25pm-2:15pm</item>
+        <item>2:00pm-3:15pm</item>
+        <item>2:30pm-3:20pm</item>
+        <item>3:30pm-4:45pm</item>
+        <item>4:00pm-4:50pm</item>
+        <item>4:00pm-5:45pm</item>
+        <item>4:40pm-5:30pm</item>
     </string-array>
     <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values/values.xml -->
     <eat-comment/>
@@ -111,7 +138,7 @@
     <color name="magenta">#FF00FF</color>
     <color name="orange">#dd8822</color>
     <color name="purple">#6644CC</color>
-    <color name="purple1">#5566FFCC</color>
+    <color name="purple1">#5566FF</color>
     <color name="red">#662222</color>
     <color name="red1">#77662222</color>
     <color name="trans">#10000000</color>
@@ -224,16 +251,15 @@
     <string name="lbl_assignments">Assignments</string>
     <string name="lbl_attendance">Attendance</string>
     <string name="lbl_cName">Name of Comment</string>
+    <string name="lbl_cTime">Select Time</string>
     <string name="lbl_course">Course</string>
-    <string name="lbl_course_heading">Profeesor/Course/Section/Term/Time</string>
     <string name="lbl_courses">Courses</string>
     <string name="lbl_date_assigned">Date Assignment Assigned</string>
     <string name="lbl_date_due">Date Assignment Due</string>
+    <string name="lbl_days">Select What Days Course is on</string>
     <string name="lbl_delete">Delete</string>
     <string name="lbl_descript">Description of Assignment</string>
-    <string name="lbl_enter_cTime">Course Time</string>
     <string name="lbl_enter_course">Course(Ex: xx101)</string>
-    <string name="lbl_enter_days">Days of the week (m,t,w,th,f)</string>
     <string name="lbl_enter_email">Enter Email</string>
     <string name="lbl_enter_id">Enter 920#</string>
     <string name="lbl_enter_name">Enter Name</string>
@@ -243,7 +269,6 @@
     <string name="lbl_enter_pwd">Enter Password</string>
     <string name="lbl_enter_school">Enter School</string>
     <string name="lbl_enter_section">Section</string>
-    <string name="lbl_enter_term">Term</string>
     <string name="lbl_enter_username">Enter Username</string>
     <string name="lbl_find">Find</string>
     <string name="lbl_forgot">Forgot Login</string>
@@ -267,6 +292,7 @@
     <string name="lbl_students">Students</string>
     <string name="lbl_submit">Submit</string>
     <string name="lbl_teacher">Teacher</string>
+    <string name="lbl_term">Select Term</string>
     <string name="lbl_thursday">Thursday</string>
     <string name="lbl_time">Time</string>
     <string name="lbl_tuesday">Tuesday</string>
@@ -274,8 +300,8 @@
     <string name="lbl_upload">Upload</string>
     <string name="lbl_wednesday">Wednesday</string>
     <string name="lbl_yes">Yes</string>
-    <string name="student_login">andrew scott</string>
-    <string name="student_login2">kippers</string>
+    <string name="student_login">Fred</string>
+    <string name="student_login2">tail</string>
     <string name="title_activity_ATTN">Attendance</string>
     <string name="title_activity_add_assignment">AddAssignmentActivity</string>
     <string name="title_activity_add_comment">AddCommentActivity</string>

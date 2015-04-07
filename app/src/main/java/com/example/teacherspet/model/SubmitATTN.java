@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.teacherspet.R;
+
 /**
  * Takes attendance for the day.
  *
@@ -20,10 +22,11 @@ public class SubmitATTN extends BasicActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int layout = R.layout.activity_13p_attendance;
 
         //Nothing needs to be pass or given back
         String[] empty = new String[AppCSTR.SIZE_ZERO];
-        super.sendData("", empty, empty, AppCSTR.URL_SUBMIT_ATTENDANCE, this, false);
+        super.sendData("", empty, empty, AppCSTR.URL_SUBMIT_ATTENDANCE, this, layout, false);
     }
 
     /**

@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.teacherspet.model.BasicActivity;
 import com.example.teacherspet.R;
+import com.example.teacherspet.model.BasicActivity;
 
 /**
  * Allows user to got to alerts, courses, schedule
@@ -19,8 +19,8 @@ public class HomeActivity extends BasicActivity {
 	 * When screen is created set to professor add course layout.
 	 * 
 	 * @param savedInstanceState Most recently supplied data.
-	 * @Override
-	 */
+     */
+	 @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_4_home);

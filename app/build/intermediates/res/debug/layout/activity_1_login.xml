@@ -6,10 +6,10 @@
     <!-- Header for Screen -->
     <TextView
         android:id="@+id/header"
-        style="@style/BasicText"
+        style="@style/TextTitle"
         android:text="@string/hello_teacher"
-        android:textColor="@color/purple"
-        android:background="@color/gold"
+        android:textColor="@color/gold"
+        android:background="@color/dk_purple"
         android:gravity="center"/>
     
     <!-- User Name Block -->

@@ -25,6 +25,8 @@ public class LoginActivity extends BasicActivity {
 	String username;
 	//User's password
 	String password;
+    //ID for layout
+    int layout;
 
 	/**
 	 * When screen is created set to login layout.
@@ -35,7 +37,8 @@ public class LoginActivity extends BasicActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_1_login);
+        layout = R.layout.activity_1_login;
+		setContentView(layout);
 	}
 	
 	/**
@@ -74,7 +77,7 @@ public class LoginActivity extends BasicActivity {
 		String [] dataPassed = new String[]{"user", username};
 		String [] dataNeeded = new String[]{"id","name","accountnumber","email","password", "accounttype"};
 
-        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_LIST_USERS, this, true);
+        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_LIST_USERS, this, layout,true);
 	}
 	
 	/**

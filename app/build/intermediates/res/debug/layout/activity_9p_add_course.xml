@@ -21,16 +21,17 @@
 		   android:hint="@string/lbl_enter_course"/>
 		
 		<!-- School Term Entry -->
-		<EditText
-		   android:id="@+id/term"
-            style="@style/TextInput"
-		   android:hint="@string/lbl_enter_term"/>
+        <Spinner
+            android:id="@+id/term"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
         <!-- Class Time Entry -->
-        <EditText
+        <Spinner
             android:id="@+id/time"
-            style="@style/TextInput"
-            android:hint="@string/lbl_enter_cTime"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/time"/>
 		
 		<!-- School Term Entry -->
 		<EditText
@@ -41,16 +42,17 @@
 		   android:hint="@string/lbl_enter_section"/>
 
         <!-- Day of Class -->
-        <EditText
+        <Spinner
             android:id="@+id/days"
-            style="@style/TextInput"
-            android:digits="@string/alphabet"
-            android:hint="@string/lbl_enter_days"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/days"/>
 
 	</LinearLayout>
     
     <!-- Submit Button -->
     <Button
+        android:id="@+id/btn_submit"
         style="@style/ActionButton"
         android:layout_alignParentBottom="true"
         android:text="@string/lbl_submit"/>

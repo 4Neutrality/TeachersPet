@@ -22,16 +22,48 @@
     <string name="weight">10</string>
 
     <!-- *******************************ADD COURSE****************************************** -->
+    <!-- Student Version -->
+    <string name="lbl_heading">Professor \t\t Course/Section \t Term \t\t\t Time</string>
     <!-- Professor Version -->
     <string name="lbl_enter_pID">Course ID Number(Ex: 1)</string>
     <string name="lbl_enter_course">Course(Ex: xx101)</string>
-    <string name="lbl_enter_term">Term</string>
-    <string name="lbl_heading">Professor \t\t Course/Section \t Term \t\t\t Time</string>
     <string name="lbl_enter_section">Section</string>
-    <string name="lbl_enter_days">Days of the week (m,t,w,th,f)</string>
-    <string name="lbl_enter_cTime">Course Time</string>
-    <!-- Student Version -->
-    <string name="lbl_course_heading">Profeesor/Course/Section/Term/Time</string>
+
+    <!-- Times for Courses -->
+    <string name="lbl_cTime">Select Time</string>
+    <string-array name="time">
+        <item>8:00am-8:50am</item>
+        <item>8:00am-9:15am</item>
+        <item>9:05am-9:55am</item>
+        <item>9:30am-10:45am</item>
+        <item>10:10am-11:00am</item>
+        <item>11:00am-12:15am</item>
+        <item>11:15am-12:05pm</item>
+        <item>12:20pm-1:10pm</item>
+        <item>1:25pm-2:15pm</item>
+        <item>2:00pm-3:15pm</item>
+        <item>2:30pm-3:20pm</item>
+        <item>3:30pm-4:45pm</item>
+        <item>4:00pm-4:50pm</item>
+        <item>4:00pm-5:45pm</item>
+        <item>4:40pm-5:30pm</item>
+    </string-array>
+
+    <!-- Term Course falls under -->
+    <string name="lbl_term">Select Term</string>
+    <string-array name="term">
+        <item>Fall2014</item>
+        <item>Spring2015</item>
+        <item>Summer2015</item>
+        <item>Fall2015</item>
+    </string-array>
+
+    <!-- Days for Course -->
+    <string name="lbl_days">Select What Days Course is on</string>
+    <string-array name="days">
+        <item>m,w,f</item>
+        <item>t,th</item>
+    </string-array>
 
     <!-- *******************************ASSIGNMENTS*************************************** -->
     <string name="lbl_gName">Name of Assignment</string>
@@ -104,8 +136,8 @@
     <string name="title_activity_students">StudentsActivity</string>
 
     <!-- *******************************LOGIN****************************************** -->
-    <string name="student_login">andrew scott</string>
-    <string name="student_login2">kippers</string>
+    <string name="student_login">Fred</string>
+    <string name="student_login2">tail</string>
 
     <string-array name="login_array">
         <item>student</item>

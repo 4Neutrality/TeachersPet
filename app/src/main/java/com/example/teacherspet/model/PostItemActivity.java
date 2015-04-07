@@ -45,6 +45,7 @@ public class PostItemActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Intent intent = getIntent();
+        setContentView(intent.getIntExtra(AppCSTR.LAYOUT, -1));
 		itemNames = intent.getStringArrayExtra(AppCSTR.DATA_PASSED);
 		itemValues = intent.getStringArrayExtra(AppCSTR.DATA_NEEDED);
 		url_to_go = intent.getStringExtra(AppCSTR.URL);

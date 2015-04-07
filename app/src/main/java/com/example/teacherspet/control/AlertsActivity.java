@@ -21,6 +21,8 @@ import com.example.teacherspet.model.BasicActivity;
 public class AlertsActivity extends BasicActivity implements AdapterView.OnItemClickListener {
     //Data needed from database
     String[] dataNeeded;
+    //ID of layout
+    int layout;
 
     /**
      * When screen is created set to alert layout, find alert info.
@@ -32,7 +34,8 @@ public class AlertsActivity extends BasicActivity implements AdapterView.OnItemC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_5_alerts);
+        layout = R.layout.activity_5_alerts;
+        setContentView(layout);
 
         startSearch();
     }
@@ -47,7 +50,7 @@ public class AlertsActivity extends BasicActivity implements AdapterView.OnItemC
         dataNeeded = new String[]{AppCSTR.ALERT_NAME, AppCSTR.ALERT_AID, AppCSTR.ALERT_SID,
                      AppCSTR.ALERT_CID, AppCSTR.ALERT_ACTION, AppCSTR.ALERT_DESCRIPTION};
 
-        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_ALERTS, this, true);
+        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_ALERTS, this, layout,true);
     }
 
     /**
@@ -60,7 +63,6 @@ public class AlertsActivity extends BasicActivity implements AdapterView.OnItemC
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        ;
         //Check request that this is response to
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS, -1);

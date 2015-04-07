@@ -23,6 +23,8 @@ public class ForgotLoginActivity extends BasicActivity {
 	private final int EMAIL = 1;
 	private final int USERNAME = 0;
     private final int PASSWORD = 2;
+    //ID for layout
+    int layout;
 
 	/**
 	 * When screen is created set to forgot login layout.
@@ -33,7 +35,8 @@ public class ForgotLoginActivity extends BasicActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_2_forgot_login);
+        layout = R.layout.activity_2_forgot_login;
+		setContentView(layout);
 	}
 	
 	/**
@@ -57,7 +60,7 @@ public class ForgotLoginActivity extends BasicActivity {
 		String tag = "user";
 		String [] dataPassed = new String[]{"920", user920};
 		String [] dataNeeded = new String[]{"name","email","password"};
-        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_920, this, true);
+        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_920, this, layout,true);
 	}
 	
 	/**

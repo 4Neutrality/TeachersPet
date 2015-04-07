@@ -48,7 +48,9 @@ public class BasicActivity extends Activity {
     }
 
     /**
-     * Takes data entered and is sent to the database to be retrieved or place information.
+     * DELETE
+     * DELETE
+     * DELETE
      *
      * @param tag Name of contains that user wants to receive. Leave blank if a post method needed.
      * @param data1 Get: Data needed to pass info/ Post: Values being set
@@ -67,6 +69,34 @@ public class BasicActivity extends Activity {
         }else{
             i = new Intent(callingActivity, PostItemActivity.class);
         }
+        i.putExtra(AppCSTR.DATA_PASSED, data1);
+        i.putExtra(AppCSTR.DATA_NEEDED, data2);
+        i.putExtra(AppCSTR.URL, url);
+        startActivityForResult(i, AppCSTR.REQUEST_CODE);
+    }
+
+    /**
+     * Takes data entered and is sent to the database to be retrieved or place information.
+     *
+     * @param tag Name of contains that user wants to receive. Leave blank if a post method needed.
+     * @param data1 Get: Data needed to pass info/ Post: Values being set.
+     * @param data2 Get: Data needed back/ Post: Values wanting to send.
+     * @param url Php to get or post information.
+     * @param callingActivity Activity that is invoking this method.
+     * @param layout Layout for background of loading screen.
+     * @param getItem True if needed to be a Get method/ False for Post method.
+     */
+    protected void sendData(String tag, String [] data1, String [] data2, String url,
+                            Context callingActivity, int layout, Boolean getItem){
+        //sending data
+        Intent i;
+        if(getItem){
+            i = new Intent(callingActivity, GetItemActivity.class);
+            i.putExtra(AppCSTR.JSON, tag);
+        }else{
+            i = new Intent(callingActivity, PostItemActivity.class);
+        }
+        i.putExtra(AppCSTR.LAYOUT, layout);
         i.putExtra(AppCSTR.DATA_PASSED, data1);
         i.putExtra(AppCSTR.DATA_NEEDED, data2);
         i.putExtra(AppCSTR.URL, url);

@@ -1,14 +1,10 @@
-<!-- Makes Screen Scrollable -->
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/BasicLayout">
-    
-    <!-- Layout For Screen -->
-	<LinearLayout
-	    style="@style/LinearV"
-        android:layout_gravity="center_vertical"
-	    tools:context="com.example.teacherspet.control.CourseActivity" >
+  <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+	  style="@style/BasicLayout"
+      android:orientation="vertical"
+      android:gravity="center"
+	  tools:context="com.example.teacherspet.control.CourseActivity" >
 	
 	    <!-- Attendance Button -->
 	    <Button 
@@ -40,5 +36,4 @@
 	        android:text="@string/lbl_info"
             style="@style/ActionButton" />
 	
-	</LinearLayout>
-</ScrollView><!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_11_course.xml -->
+	</LinearLayout><!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_11_course.xml -->

@@ -84,6 +84,7 @@ public class AppCSTR {
     //success of getting data from database
     public static final String SUCCESS = "success";
     //Get data passed, data need, and url to go to
+    public static final String LAYOUT = "layout";
     public static final String DATA_PASSED = "pass";
     public static final String DATA_NEEDED = "need";
     public static final String URL = "url";
