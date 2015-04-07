@@ -6,56 +6,42 @@
 
    <!-- Top Layout -->
    <LinearLayout
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
+       style="@style/LinearInput"
        android:orientation="vertical">
        <!-- Enter Name Entry -->
        <EditText
 	        android:id="@+id/fld_name"
-	        android:layout_height="wrap_content"
-	        android:layout_width="fill_parent"
+	        style="@style/TextInput"
 	        android:hint="@string/lbl_enter_name"
             android:digits="@string/alphabet"/>
 
         <!-- Enter ID Entry -->
         <EditText
 	        android:id="@+id/fld_id"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
+            style="@style/TextInput"
 	        android:hint="@string/lbl_enter_id"
 	        android:inputType="number"/>
        
         <!-- Enter School Entry -->
         <EditText
 	        android:id="@+id/fld_school"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
+            style="@style/TextInput"
 	        android:hint="@string/lbl_enter_school"
             android:digits="@string/alphabet"/>
 
         <!-- Enter Email Entry -->
         <EditText
 	        android:id="@+id/fld_email"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
+            style="@style/TextInput"
 	        android:hint="@string/lbl_enter_email"
 	        android:inputType="textEmailAddress"/>
      
         <!-- Enter Password Entry -->
         <EditText
 	        android:id="@+id/fld_password"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
+            style="@style/TextInput"
 	        android:hint="@string/lbl_enter_password"
 	        android:inputType="textPassword"/>
-      
-        <!-- Enter Picture Entry 
-        <EditText
-	        android:id="@+id/fld_pic"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:hint="@string/lbl_enter_pic"
-	        android:inputType="none"/> -->
     </LinearLayout>
     
    <!-- Bottom Submit Button -->
@@ -74,7 +60,7 @@
         <!-- Student Account -->
         <TextView
 	            android:id="@+id/accountS"
-	            style="@style/BasicText"
+	            style="@style/TextCheck"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:text="@string/lbl_accountS"/>
@@ -85,7 +71,7 @@
         <!-- Professor Account -->
         <TextView
 	            android:id="@+id/accountP"
-	            style="@style/BasicText"
+                style="@style/TextCheck"
 	            android:layout_width="0dp"
 	            android:layout_weight="1"
 	            android:text="@string/lbl_accountP"/>

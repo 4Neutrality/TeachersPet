@@ -3,34 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BasicLayout"
     tools:context="com.example.teacherspet.control.HomeActivity" >
-    
-    <!-- Course Button -->
-     <Button 
-        android:id="@+id/btn_courses"
-        android:text="@string/lbl_courses"
-        style="@style/CenterVButton" />
-     
-     <!-- Alert Button -->
-     <Button 
-        android:id="@+id/btn_alerts"
-        android:text="@string/lbl_alerts"
-        style="@style/CenterVButton"
-        android:layout_above="@id/btn_courses"/>
-     
-     <!-- Schedule Button -->
-     <Button 
-        android:id="@+id/btn_schedule"
-        android:text="@string/lbl_schedule"
-        style="@style/CenterVButton"
-        android:layout_below="@id/btn_courses"/>
-     
-     <!-- Settings Button 
-     Not a must, waiting till later to implement
-     <Button 
-        android:id="@+id/btn_settings"
-        android:text="@string/lbl_settings"
-        style="@style/CenterVButton"
-        android:layout_below="@id/btn_schedule"/> -->
+
+    <LinearLayout
+        style="@style/LinearV"
+        android:layout_centerVertical="true">
+        <!-- Alert Button -->
+        <Button
+            android:id="@+id/btn_alerts"
+            android:text="@string/lbl_alerts"
+            style="@style/ActionButton"/>
+
+        <!-- Course Button -->
+         <Button
+            android:id="@+id/btn_courses"
+            android:text="@string/lbl_courses"
+            style="@style/ActionButton" />
+
+         <!-- Schedule Button -->
+         <Button
+            android:id="@+id/btn_schedule"
+            android:text="@string/lbl_schedule"
+            style="@style/ActionButton"/>
+    </LinearLayout>
 
 </RelativeLayout>
 <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_4_home.xml -->

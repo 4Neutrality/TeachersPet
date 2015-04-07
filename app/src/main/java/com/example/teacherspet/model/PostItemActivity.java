@@ -88,7 +88,7 @@ public class PostItemActivity extends Activity{
 		@Override
 		protected String doInBackground(String... args){
 			// Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            List<NameValuePair> params = new ArrayList<>();
 			for(int i = 0; i < itemNames.length; i++){
 	            params.add(new BasicNameValuePair(itemNames[i], itemValues[i]));
 	            Log.e("Param: ", "" + itemValues[i]);

@@ -7,7 +7,6 @@
     <!-- List to Display Students -->
     <ListView
         android:id="@+id/users"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        style="@style/LinearV" />
 
 </LinearLayout>

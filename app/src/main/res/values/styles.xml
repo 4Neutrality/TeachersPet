@@ -1,125 +1,136 @@
 <resources>
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
+    <!--*************************************COMMON**********************************************-->
+    <!--App theme-->
     <style name="AppBaseTheme" parent="Theme.Base.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    </style>
-    
-    
-    <!--***********************************BUTTONS********************************************-->
-    <style name="button">
-      <item name="android:layout_width">250dp</item>
-      <item name="android:layout_height">60dp</item>
-      <item name="android:textColor">@color/gold</item>
-      <item name="android:gravity">center</item>
-      <item name="android:layout_margin">3dp</item>
-      <item name="android:textSize">30sp</item>
-      <item name="android:textStyle">bold</item>
-      <item name="android:shadowColor">#000000</item>
-      <item name="android:shadowDx">1</item>
-      <item name="android:shadowDy">1</item>
-      <item name="android:shadowRadius">2</item>
-    <!-- <item name="android:background">@drawable/mybutton</item> -->
     </style>
 
-    <!--For all basic touch buttons-->
-    <style name="BasicButton" parent="button">
-        <item name="android:layout_width">match_parent</item>
+    <!--Horizontal Gravity Views-->
+    <style name="GravityH">
+        <item name="android:layout_width">@dimen/ZERO</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">13sp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-    
-     <!-- Button with user interactivity -->
-    <style name="ActionButton" parent="@style/BasicButton">
-        <item name="android:onClick">onClicked</item>
-    </style>
-    
-    <!-- Button Centered Vertically on Screen with Action-->
-    <style name="CenterVButton" parent="@style/ActionButton">
-        <item name="android:layout_centerInParent">true</item>
     </style>
 
-    <!-- Button Centered Vertically on Screen with Action-->
-    <style name="PlusButton" parent="@style/CenterVButton">
-        <item name="android:drawableStart">@drawable/ic_add</item>
-        <item name="android:drawableLeft">@drawable/ic_add</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_alignParentBottom">true</item>
+    <!--Horizontal Gravity Views-->
+    <style name="GravityV">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/ZERO</item>
     </style>
-    
-    
-    
-    <!--***********************************LAYOUTS********************************************-->
-    <!-- Basic Layout Heading -->
+
+    <!-- Basic View Layout -->
     <style name="BasicLayout">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
-        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
-        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
-        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
-        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+        <item name="android:background">@drawable/gradient_bg</item>
     </style>
-    
-    
-    
-    <!--***********************************TABLES********************************************-->
-    <!--Heading for all tables  -->
-    <style name="TableHeading">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">fill_parent</item>
-        <item name="android:layout_weight">1</item>
-	    <item name="android:textStyle">bold</item>
-	    <item name="android:textSize">12sp</item>
-	    <item name="android:textColor">@android:color/black</item>
-    </style>
-    
-    
-    
-    <!--***********************************TEXT********************************************-->
-    <!--Basic style for Text -->
+
+    <!-- Basic Text Layout -->
     <style name="BasicText">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/text_Medium</item>
+        <item name="android:textColor">@color/gold</item>
+    </style>
+
+    <!--***********************************BUTTONS********************************************-->
+    <style name="BasicButton" parent="TextCenter">
+        <item name="android:layout_margin">@dimen/btn_margin</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/mybutton</item>
+    </style>
+
+    <!-- Button with user interactivity -->
+    <style name="ActionButton" parent="@style/BasicButton">
+        <item name="android:onClick">onClicked</item>
+    </style>
+
+    <!-- Button with user interactivity with weights -->
+    <style name="ActionButtonGravity" parent="@style/ActionButton">
+        <item name="android:layout_width">@dimen/ZERO</item>
+    </style>
+
+    <!-- Button Centered Vertically on Screen with Action-->
+    <style name="PlusButton" parent="@style/ActionButton">
+        <item name="android:drawableLeft">@drawable/ic_add2</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+
+    <!--***********************************LAYOUTS********************************************-->
+    <!-- Adding weight to layout -->
+    <style name="LinearWeight" parent="BasicLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:weightSum">@string/weight</item>
+    </style>
+
+    <!-- Linear Layout w/ vertical orientation -->
+    <style name="LinearV" parent="LinearWeight">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Linear Layout w/ horizontal orientation -->
+    <style name="LinearH" parent="LinearWeight">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- Linear Layout w/ list view -->
+    <style name="LinearInput" parent="LinearV">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/trans</item>
+    </style>
+
+
+    <!--***********************************TEXT********************************************-->
+    <!-- Basic Text Layout -->
+    <style name="Text_Small" parent="BasicText">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <!--Center Text in View-->
+    <style name="TextCenter" parent="@style/BasicText">
         <item name="android:gravity">center</item>
     </style>
-    
-    <!--Basic style for Text -->
-    <style name="BasicEditText">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">text</item>
+
+    <!--Center view in Parent -->
+    <style name="TextCenterParent" parent="TextCenter">
+        <item name="android:textSize">@dimen/text_XLarge</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
-    
-     <!--Basic style for Text Titles-->
-    <style name="TitleText">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">13sp</item>
-        <item name="android:gravity">center</item>
+
+    <!--Center view in Parent -->
+    <style name="TextTitle" parent="TextCenter">
+        <item name="android:textSize">@dimen/text_Large</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <!-- Basic Text Layout -->
+    <style name="TextInput" parent="BasicText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_Medium</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
-     <!--Basic style for AutoComplete Text-->
-    <style name="AutoText">
-        <item name="android:layout_width">200sp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">13sp</item>
-        <item name="android:inputType">text|textAutoCorrect</item>
+
+    <!-- Basic Text Layout -->
+    <style name="TextCheck" parent="BasicText">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <!-- Basic Text Layout -->
+    <style name="TextPadding" parent="BasicText">
+        <item name="android:paddingLeft">@dimen/text_padding</item>
+        <item name="android:paddingTop">@dimen/text_padding</item>
+        <item name="android:paddingRight">@dimen/text_padding</item>
     </style>
 
 </resources>

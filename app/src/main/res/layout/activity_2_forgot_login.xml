@@ -1,21 +1,20 @@
 <!-- Middle Layout -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BasicLayout"
-    android:gravity="center_vertical"
-    android:orientation="vertical"
     tools:context="com.example.teacherspet.control.ForgotLoginActivity" >
 
     <!-- 920 Entry -->
     <EditText
         android:id="@+id/userID"
-	    android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+	    style="@style/BasicText"
+        android:layout_centerVertical="true"
         android:inputType="number"
 	    android:hint="@string/lbl_920" />
 	<!-- Submit Button -->
     <Button 
 	    style="@style/ActionButton"
+        android:layout_below="@id/userID"
 	    android:text="@string/lbl_submit"/>
 
-</LinearLayout>
+</RelativeLayout>

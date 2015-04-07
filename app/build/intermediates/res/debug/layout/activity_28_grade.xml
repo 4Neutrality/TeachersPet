@@ -6,7 +6,7 @@
     <!-- Student Grade -->
     <TextView
         android:id="@+id/studentName"
-        style="@style/TitleText"/>
+        style="@style/TextTitle"/>
 
 </LinearLayout>
 <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_28_grade.xml -->

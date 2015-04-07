@@ -7,8 +7,7 @@
     <!-- List to Display Students -->
     <ListView
         android:id="@+id/users"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        style="@style/LinearV" />
 
 </LinearLayout>
 <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_15_students.xml -->

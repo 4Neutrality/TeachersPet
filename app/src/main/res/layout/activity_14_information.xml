@@ -6,7 +6,6 @@
     <!-- List Assignments -->
     <ListView
         android:id="@+id/extra"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        style="@style/LinearV"/>
 
 </RelativeLayout>

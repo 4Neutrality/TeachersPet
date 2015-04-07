@@ -1,33 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    android:paddingBottom="0dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BasicLayout"
     android:background="@color/purple"
     tools:context="com.example.teacherspet.view.SplashScreenActivity">
 
     <TextView
         android:text="@string/hello_teacher"
-        android:gravity="center"
-        android:id="@+id/splash_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/yellow"
-        android:textSize="45dp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/splash_cat"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/splash_title"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        style="@style/TextCenterParent"
+        android:id="@+id/splash_title" />
 
 </RelativeLayout>

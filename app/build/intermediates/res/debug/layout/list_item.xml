@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
+    style="@style/LinearV">
 
     <TextView
         android:id="@+id/listItem"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp" >
+        style="@style/TextCenter" >
     </TextView>
 
 </LinearLayout><!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/list_item.xml -->

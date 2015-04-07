@@ -2,6 +2,7 @@ package com.example.teacherspet.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,20 +15,17 @@ import com.example.teacherspet.model.BasicActivity;
  * Find all Lab information for the course.
  *
  * @author Johnathon Malott, Kevin James
- * @version 3/1/2015
+ * @version 3/25/2015
  */
 public class LabActivity extends BasicActivity implements AdapterView.OnItemClickListener {
     //Data collecting from web page
     String[] dataNeeded;
-    //Web page to connect to
-    private static String url_find_lab = "https://morning-castle-9006.herokuapp.com/find_lab.php";
 
 	/**
 	 * When screen is created set to lab layout.
-	 * Sets up auto-complete feature on lab TextView
+	 * Start searching for labs.
 	 * 
 	 * @param savedInstanceState Most recently supplied data.
-	 * @Override
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,7 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
 	}
 
     /**
-     * Send data to database to get back extra names and address.
+     * Get lab data from the database.
      */
     private void startSearch(){
         //Name of JSON tag storing data
@@ -47,11 +45,11 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
         String[] dataPassed = new String[]{"cid", super.getCourseID()};
         dataNeeded = new String[]{"name","address","lid"};
 
-        sendData(tag, dataPassed, dataNeeded, url_find_lab, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_LAB, this, true);
     }
 
     /**
-     * List all extras in the course to the screen.
+     * List all lab to the course to the screen.
      *
      * @param requestCode Number that was assigned to the intent being called.
      * @param resultCode RESULT_OK if successful, RESULT_CANCELED if failed
@@ -72,13 +70,13 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
                 labs.setOnItemClickListener(this);
             } else {
                 //Do nothing, user will see no alerts in his box.
-                Toast.makeText(this, "No extras!!", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "No Labs!!", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     /**
-     * When extra is selected send to web page.
+     * When lab is select take that lab information and send to show lab screen.
      *
      * @param parent Where clicked happen.
      * @param view View that was clicked
@@ -88,13 +86,14 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
-        String[] extra = super.getNameorExtra(position, "extra").split("%");
-        String url = "http://" + extra[0];
+        String[] extra = super.getNameorExtra(position, AppCSTR.EXTRA).split("%");
+        String url = "http://" + extra[AppCSTR.FIRST_ELEMENT];
+        Log.e("URL: ", url);
 
         Intent i = new Intent(this, ShowLabActivity.class);
-        i.putExtra("title", super.getNameorExtra(position, "name"));
-        i.putExtra("url", url);
-        i.putExtra("lid", extra[1]);
+        i.putExtra(AppCSTR.SHOW_NAME, super.getNameorExtra(position, AppCSTR.SHOW_NAME));
+        i.putExtra(AppCSTR.SHOW_URL, url);
+        i.putExtra(AppCSTR.SHOW_LAB_ID, extra[AppCSTR.SECOND_ELEMENT]);
         startActivity(i);
     }
 }

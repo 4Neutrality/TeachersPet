@@ -6,77 +6,61 @@
     <!-- Header for Screen -->
     <TextView
         android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_teacher" 
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@android:color/black"
+        style="@style/TextTitle"
+        android:text="@string/hello_teacher"
+        android:textColor="@color/gold"
+        android:background="@color/dk_purple"
         android:gravity="center"/>
     
     <!-- User Name Block -->
     <LinearLayout
         android:id="@+id/uname_block"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/LinearInput"
         android:layout_below="@id/header"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/title_margin">
         <!-- User Name Entry -->
         <EditText
             android:id="@+id/fld_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextInput"
             android:text="@string/student_login" 
-            android:inputType="text"
-            android:textSize="13sp"
-            />
+            android:inputType="text"/>
     </LinearLayout>
     
     <!-- Password Block -->
     <LinearLayout
         android:id="@+id/pwd_block"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/LinearInput"
         android:layout_below="@id/uname_block"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/title_margin">
         <!-- Password Entry -->
         <EditText
             android:id="@+id/fld_pwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextInput"
             android:text="@string/student_login2"
             android:inputType="textPassword"
-            android:textSize="13sp"
             />
     </LinearLayout>
-    
-    <!-- Login Button -->
-     <Button 
-         style="@style/ActionButton"
-         android:id="@+id/btn_login"
-         android:layout_below="@id/pwd_block"
-         android:text="@string/lbl_login"
-         android:layout_marginTop="15dp"
-         />
-     
-     <!-- Forgot Button -->
-     <Button 
-         style="@style/ActionButton"
-         android:id="@+id/btn_forgot"
-         android:layout_below="@id/btn_login"
-         android:text="@string/lbl_forgot"
-         android:layout_marginTop="1dp"
-         />
-     
-     <!-- New User Button -->
-     <Button 
-         style="@style/BasicButton"
-         android:id="@+id/btn_newUser"
-         android:layout_below="@id/btn_forgot"
-         android:text="@string/lbl_newUser"
-         android:layout_marginTop="1dp"
-         android:onClick="onClicked"
-         />
+
+        <!-- Login Button -->
+         <Button
+             android:layout_centerInParent="true"
+             style="@style/ActionButton"
+             android:id="@+id/btn_login"
+             android:text="@string/lbl_login"/>
+
+         <!-- Forgot Button -->
+         <Button
+             style="@style/ActionButton"
+             android:id="@+id/btn_forgot"
+             android:layout_below="@id/btn_login"
+             android:text="@string/lbl_forgot" />
+
+         <!-- New User Button -->
+         <Button
+             style="@style/BasicButton"
+             android:id="@+id/btn_newUser"
+             android:layout_below="@id/btn_forgot"
+             android:text="@string/lbl_newUser"
+             android:onClick="onClicked"/>
 
 </RelativeLayout>

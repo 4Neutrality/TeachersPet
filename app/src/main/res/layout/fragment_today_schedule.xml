@@ -6,16 +6,12 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:textSize="20dp"/>
+        style="@style/TextCenter"
+        android:layout_marginBottom="@dimen/title_margin"/>
 
     <TextView
         android:id="@+id/scheduleText"
-        android:layout_width="fill_parent"
-        android:layout_below="@id/title"
-        android:layout_height="fill_parent"/>
+        style="@style/BasicText"
+        android:layout_below="@id/title"/>
 
 </RelativeLayout>

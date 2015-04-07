@@ -6,8 +6,7 @@
     <!-- List Assignments -->
     <ListView
         android:id="@+id/extra"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        style="@style/LinearV"/>
 
 </RelativeLayout>
 <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_14_information.xml -->

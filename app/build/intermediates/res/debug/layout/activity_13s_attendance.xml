@@ -6,17 +6,13 @@
             <!-- Title -->
          <TextView
              android:id="@+id/attnTitle"
-             android:layout_width="fill_parent"
-             android:layout_height="wrap_content"
-             android:gravity="center"
-             android:textSize="20dp"
-             android:layout_marginBottom="20dp"/>
+             style="@style/BasicText"
+             android:layout_marginBottom="@dimen/title_margin"/>
           <!-- Middle -->
           <TextView
               android:id="@+id/attnView"
               android:layout_below="@id/attnTitle"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"/>
+              style="@style/BasicLayout"/>
 
 </RelativeLayout>
 <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_13s_attendance.xml -->

@@ -4,23 +4,10 @@
     style="@style/BasicLayout"
     tools:context="com.example.teacherspet.control.AlertsActivity" >
 
-    <!-- Middle layout -->
-    <ScrollView
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent">
-      <LinearLayout
-          android:id="@+id/viewLayout"
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:background="@android:color/black">
-	      <!-- Display Course View -->
-          <ListView
-              android:id="@+id/alertView"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:background="@android:color/white"/>
-      </LinearLayout>
-    </ScrollView>
+
+    <ListView
+          android:id="@+id/alertView"
+          style="@style/LinearInput"/>
 
 </RelativeLayout>
 <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_5_alerts.xml -->

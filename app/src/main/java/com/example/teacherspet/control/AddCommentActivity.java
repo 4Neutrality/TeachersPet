@@ -4,31 +4,42 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.teacherspet.model.AppCSTR;
 import com.example.teacherspet.model.BasicActivity;
 
+/**
+ * Creates a comment for a lab in the database.
+ *
+ * @author Johnathon Malott, Kevin James
+ * @version 3/25/2015
+ */
 public class AddCommentActivity extends BasicActivity {
-    private static String url_add_comment = "https://morning-castle-9006.herokuapp.com/create_comment.php";
 
+    /**
+     * Send data needed to the database.
+     *
+     * @param savedInstanceState Most recently supplied data.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        sendItems();
+       sendItems();
     }
 
     /**
-     * Sends items to model to access the database and get data that is needed.
+     * Updates database with comment information.
      */
     private void sendItems() {
         //Name of JSON tag storing data
         String[] itemNames = new String[]{"cid","rid","lid","name","descript","pid"};
         String[] itemValues = getValues();
 
-        sendData("", itemNames, itemValues, url_add_comment, this, false);
+        sendData("", itemNames, itemValues, AppCSTR.URL_ADD_COMMENT, this, false);
     }
 
     /**
-     * Sets the name of the assignment to be displayed in list view.
+     * Notify user if the comment was added.
      *
      * @param requestCode Number that was assigned to the intent being called.
      * @param resultCode  RESULT_OK if successful, RESULT_CANCELED if failed
@@ -39,28 +50,29 @@ public class AddCommentActivity extends BasicActivity {
                                     Intent data) {
         //Check request that this is response to
         if (requestCode == 0) {
-            int success = data.getIntExtra("success", -1);
+            int success = data.getIntExtra(AppCSTR.SUCCESS, -1);
             if (success == 0) {
-                Toast.makeText(this, "Comment Added", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Comment Added", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(this, "Comment Error", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Comment Error", Toast.LENGTH_SHORT).show();
             }
             finish();
         }
     }
 
     /**
+     * Get the values that were passed by the intent.
      *
-     * @return
+     * @return All values needed to pass to database.
      */
     private String[] getValues(){
         Intent i = getIntent();
 
         String cid = super.getCourseID();
-        String rid = i.getStringExtra("rid");
-        String lid = i.getStringExtra("lid");
-        String name = i.getStringExtra("name");
-        String descript = i.getStringExtra("descript");
+        String rid = i.getStringExtra(AppCSTR.SHOW_RECEIVE_ID);
+        String lid = i.getStringExtra(AppCSTR.SHOW_LAB_ID);
+        String name = i.getStringExtra(AppCSTR.SHOW_NAME);
+        String descript = i.getStringExtra(AppCSTR.SHOW_DESCRIPTION);
         String pid = super.getID();
 
         return new String[]{cid,rid,lid,name,descript,pid};

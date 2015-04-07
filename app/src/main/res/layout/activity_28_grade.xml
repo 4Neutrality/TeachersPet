@@ -6,6 +6,6 @@
     <!-- Student Grade -->
     <TextView
         android:id="@+id/studentName"
-        style="@style/TitleText"/>
+        style="@style/TextTitle"/>
 
 </LinearLayout>

@@ -43,9 +43,12 @@ public class NewUserActivity extends BasicActivity {
         professor = (CheckBox) findViewById(R.id.checkP);
 		//Action to hold screen change.
 		if(view.getId() == R.id.btn_submit){
-			if((student.isChecked() || professor.isChecked()) && isValidInput()){
-				sendItems();
-			}
+			if((student.isChecked() || professor.isChecked())){
+				if(isValidInput())
+                  sendItems();
+			}else{
+                Toast.makeText(this,"Please check student/professor!", Toast.LENGTH_SHORT).show();
+            }
 		}
 	}
 	
@@ -58,6 +61,24 @@ public class NewUserActivity extends BasicActivity {
 
         super.sendData("", itemNames, itemValues, AppCSTR.URL_CREATE_USER, this, false);
 	}
+
+    /**
+     * Get all data the user filled out and return it.
+     *
+     * @return A list of all values entered by user.
+     */
+    private String[] getValues(){
+        //Student by default
+        String accounttype = AppCSTR.STUDENT;
+
+        if(student.isChecked()){
+            accounttype = AppCSTR.STUDENT;
+        }else if(professor.isChecked()){
+            accounttype = AppCSTR.PROFESSOR;
+        }
+
+        return (new String[]{name,accountnumber,college,email,password,accounttype});
+    }
 	
 	/**
 	 * Receives data from model that was received from the database.
@@ -82,34 +103,11 @@ public class NewUserActivity extends BasicActivity {
         super.start(this, LoginActivity.class, true);
 	}
 	
-	/**
-	 * Get all data the user filled out and return it.
-	 * 
-	 * @return A list of all values entered by user.
-	 */
-	private String[] getValues(){
-        //Student by default
-        String accounttype = AppCSTR.STUDENT;
-        
-        if(student.isChecked()){
-			accounttype = AppCSTR.STUDENT;
-		}else if(professor.isChecked()){
-			accounttype = AppCSTR.PROFESSOR;
-		}
-        
-        return (new String[]{name,accountnumber,college,email,password,accounttype});
-	}
-	
 	/*
 	 * This method checks that the given input for the NewUserActivity is in a valid format. If any argument is not valid,
 	 * then a toast will displayed to the screen containing the error message. 
 	 * 
 	 * @return boolean
-	 * @param inputname - Name
-	 * 		  inputAccountnumber - '920' student id
-	 * 		  inputCollege - College Name
-	 * 		  inputEmail - Email address
-	 * 		  inputPassword - Password
 	 **/
 	public boolean isValidInput() {
         getText();
@@ -117,18 +115,24 @@ public class NewUserActivity extends BasicActivity {
         String response;
         // Check account number for length, and to see it contains '920'
         if (accountnumber.length() != 9) {
-        	response = "Invalid account number length.";
+        	response = "Invalid account number length!";
         }
         else if (!accountnumber.matches("920\\d{6}")) {
-        	response = "Account number must start with '920'.";
+        	response = "Account number must start with '920'!";
         }
         // Email must have '.edu' suffix
         else if (!email.matches("\\w+@.+\\.edu")) {
-        	response = "Email must have '.edu' suffix.";
+        	response = "Email must have '@' and '.edu'!";
         }
         // Minimum password length is 4
         else if (password.length() < 4) {
-        	response = "Password must be at least 4 characters long.";
+        	response = "Password must be at least 4 characters!";
+        }
+        else if (name.length() < 1) {
+            response = "Name must be at least 1 character!";
+        }
+        else if (college.length() < 2) {
+            response = "College must be at least 2 characters!";
         }
         else {
         	// Success

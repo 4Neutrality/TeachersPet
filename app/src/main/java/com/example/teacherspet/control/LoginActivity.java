@@ -23,7 +23,7 @@ public class LoginActivity extends BasicActivity {
 	Button btn_newUser;
 	//User's username
 	String username;
-	//User's passowrd
+	//User's password
 	String password;
 
 	/**

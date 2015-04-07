@@ -18,16 +18,17 @@
     <string name="date">(23 September 2014)</string>
     <string name="image_descript">Image to be displayed</string>
     <string name="title_activity_post_item">Post Item Screen</string>
-    <string name="alphabet">abcdefghijklmnopqrstuvwxyz .ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="alphabet">abcdefghijklmnopqrstuvwxyz .,ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="weight">10</string>
 
     <!-- *******************************ADD COURSE****************************************** -->
     <!-- Professor Version -->
-    <string name="lbl_enter_pID">Course ID Number</string>
-    <string name="lbl_enter_pName">Professors Name</string>
-    <string name="lbl_enter_course">Course</string>
+    <string name="lbl_enter_pID">Course ID Number(Ex: 1)</string>
+    <string name="lbl_enter_course">Course(Ex: xx101)</string>
     <string name="lbl_enter_term">Term</string>
     <string name="lbl_heading">Professor \t\t Course/Section \t Term \t\t\t Time</string>
     <string name="lbl_enter_section">Section</string>
+    <string name="lbl_enter_days">Days of the week (m,t,w,th,f)</string>
     <string name="lbl_enter_cTime">Course Time</string>
     <!-- Student Version -->
     <string name="lbl_course_heading">Profeesor/Course/Section/Term/Time</string>
@@ -103,8 +104,8 @@
     <string name="title_activity_students">StudentsActivity</string>
 
     <!-- *******************************LOGIN****************************************** -->
-    <string name="student_login">Catamount</string>
-    <string name="student_login2">WCU1</string>
+    <string name="student_login">andrew scott</string>
+    <string name="student_login2">kippers</string>
 
     <string-array name="login_array">
         <item>student</item>

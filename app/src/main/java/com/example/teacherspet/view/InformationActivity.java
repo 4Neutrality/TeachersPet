@@ -3,7 +3,6 @@ package com.example.teacherspet.view;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -17,20 +16,17 @@ import com.example.teacherspet.model.BasicActivity;
  * Find all extra information for the course.
  *  
  * @author Johnathon Malott, Kevin James
- * @version 2/27/2015
+ * @version 3/25/2015
  */
 public class InformationActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     //Data collecting from web page
     String[] dataNeeded;
-    //Web page to connect to
-    private static String url_find_extra = "https://morning-castle-9006.herokuapp.com/find_extra.php";
 
 	/**
 	 * When screen is created set to information layout.
      * Then start search for extra information.
 	 * 
 	 * @param savedInstanceState Most recently supplied data.
-	 * @Override
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +46,7 @@ public class InformationActivity extends BasicActivity implements AdapterView.On
         String[] dataPassed = new String[]{"cid", super.getCourseID()};
         dataNeeded = new String[]{"name","address"};
 
-        sendData(tag, dataPassed, dataNeeded, url_find_extra, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_EXTRA, this, true);
     }
 
     /**
@@ -75,7 +71,7 @@ public class InformationActivity extends BasicActivity implements AdapterView.On
                 attendance.setOnItemClickListener(this);
             } else {
                 //Do nothing, user will see no alerts in his box.
-                Toast.makeText(this, "No extras!!", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "No extras!!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -91,8 +87,7 @@ public class InformationActivity extends BasicActivity implements AdapterView.On
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
-        String url = "http://" + super.getNameorExtra(position, "extra").replaceAll("%", "");
-        Log.d("URL", url);
+        String url = "http://" + super.getNameorExtra(position, AppCSTR.SHOW_EXTRA).replaceAll("%", "");
 
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));

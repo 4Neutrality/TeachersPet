@@ -40,6 +40,7 @@ public class AppCSTR {
     public static final String URL_LIST_COURSES = "https://morning-castle-9006.herokuapp.com/list_courses.php";
     public static final String URL_CREATE_USER = "https://morning-castle-9006.herokuapp.com/create_user.php";
     public static final String URL_CREATE_COURSE = "https://morning-castle-9006.herokuapp.com/create_course.php";
+    public static final String URL_ADD_COMMENT = "https://morning-castle-9006.herokuapp.com/create_comment.php";
     public static final String URL_ADD_ASSIGNMENT = "https://morning-castle-9006.herokuapp.com/create_assignment.php";
 
     public static final String URL_FIND_920 = "https://morning-castle-9006.herokuapp.com/find_920.php";
@@ -52,6 +53,9 @@ public class AppCSTR {
     public static final String URL_FIND_GRADES = "https://morning-castle-9006.herokuapp.com/find_grades.php";
     public static final String URL_FIND_GRADED = "https://morning-castle-9006.herokuapp.com/find_graded.php";
     public static final String URL_FIND_STUDENT_GRADES = "https://morning-castle-9006.herokuapp.com/find_student_grades.php";
+    public static final String URL_FIND_LAB = "https://morning-castle-9006.herokuapp.com/find_lab.php";
+    public static final String URL_FIND_COMMENTS = "https://morning-castle-9006.herokuapp.com/find_comments.php";
+    public static final String URL_FIND_EXTRA = "https://morning-castle-9006.herokuapp.com/find_extra.php";
 
     public static final String URL_DELETE_ALERT = "https://morning-castle-9006.herokuapp.com/delete_alert.php";
     public static final String URL_ENROLL_STUDENT = "https://morning-castle-9006.herokuapp.com/enroll_student.php";
@@ -133,6 +137,10 @@ public class AppCSTR {
     public static final String SHOW_NAME = "name";
     public static final String SHOW_EXTRA = "extra";
     public static final String SHOW_DETAIL = "detail";
+    public static final String SHOW_URL = "url";
+    public static final String SHOW_LAB_ID = "labID";
+    public static final String SHOW_RECEIVE_ID = "rid";
+    public static final String SHOW_DESCRIPTION = "descript";
 
     //STUDENTS***************************************************************
     public static final String EMAIL = "email";

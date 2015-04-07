@@ -20,9 +20,6 @@ import java.util.HashMap;
  * @version 3/21/2015
  */
 public class CoursesActivity extends BasicActivity {
-    //Finds row item.
-    static final int COURSE = 0;
-    static final int COURSEID = 1;
 	ArrayList<HashMap<String, String>> courseList;
     
 	/**
@@ -30,13 +27,12 @@ public class CoursesActivity extends BasicActivity {
      * user enrolled courses..
 	 * 
 	 * @param savedInstanceState Most recently supplied data.
-	 * @Override
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_6_courses);
-		courseList = new ArrayList<HashMap<String, String>>();
+		courseList = new ArrayList<>();
 		
 		startSearch();
 	}
@@ -76,17 +72,15 @@ public class CoursesActivity extends BasicActivity {
 	    		
 	    		for(int i = 0; i < count; i++){
 	    	        String[] item = data.getStringArrayExtra(AppCSTR.DB_ROW + i);
-	    	        //Log.d("COURSE: ", item[0]);
 	    	        //Button cButton = (Button) findViewById(R.id.btn_course0);
-	    	        buttons[i].setText(item[COURSE]);
-                    buttons[i].setTag(item[COURSEID]);
+	    	        buttons[i].setText(item[AppCSTR.FIRST_ELEMENT]);
+                    buttons[i].setTag(item[AppCSTR.SECOND_ELEMENT]);
 	    	        buttons[i].setVisibility(View.VISIBLE);
 
                     //if class selected take to next screen
 	    	        buttons[i].setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
-                            //Log.d("COURSEID", (String) v.getTag());
                             //From basic activity
                             makePref();
                             setCourseID((String) v.getTag());

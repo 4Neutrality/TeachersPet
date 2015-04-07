@@ -5,48 +5,47 @@
 
     <!-- Top Layout -->
     <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:orientation="vertical">
+        style="@style/LinearInput">
         
         <!-- ID Entry -->
 		<EditText 
 		   android:id="@+id/cid"
-		   style="@style/BasicEditText"
+		   style="@style/TextInput"
 		   android:inputType="number"
 		   android:hint="@string/lbl_enter_pID"/>
-		  
-		<!-- Name Entry -->
-		<EditText
-		   android:id="@+id/pname"
-		   style="@style/BasicEditText"
-           android:digits="@string/alphabet"
-		   android:hint="@string/lbl_enter_pName"/>
 		    
 		<!-- Course Entry -->
 		<EditText
 		   android:id="@+id/course"
-		   style="@style/BasicEditText"
+		   style="@style/TextInput"
 		   android:hint="@string/lbl_enter_course"/>
 		
 		<!-- School Term Entry -->
 		<EditText
 		   android:id="@+id/term"
-		   style="@style/BasicEditText" 
+            style="@style/TextInput"
 		   android:hint="@string/lbl_enter_term"/>
 
         <!-- Class Time Entry -->
         <EditText
             android:id="@+id/time"
-            style="@style/BasicEditText"
+            style="@style/TextInput"
             android:hint="@string/lbl_enter_cTime"/>
 		
 		<!-- School Term Entry -->
 		<EditText
 		   android:id="@+id/section"
-		   style="@style/BasicEditText" 
+            style="@style/TextInput"
+           android:maxLength="1"
 		   android:inputType="number"
 		   android:hint="@string/lbl_enter_section"/>
+
+        <!-- Day of Class -->
+        <EditText
+            android:id="@+id/days"
+            style="@style/TextInput"
+            android:digits="@string/alphabet"
+            android:hint="@string/lbl_enter_days"/>
 
 	</LinearLayout>
     

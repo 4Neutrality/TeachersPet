@@ -1,50 +1,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/BasicLayout"
     tools:context="com.example.teacherspet.control.AddAssignmentActivity">
 
     <!-- Top Layout -->
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        style="@style/LinearV">
         <!-- Enter Name Entry -->
         <EditText
             android:id="@+id/fld_aName"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            style="@style/Text_Small"
             android:hint="@string/lbl_gName"
             android:inputType="text"/>
 
         <!-- Enter ID Entry -->
         <EditText
             android:id="@+id/fld_dd"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            style="@style/Text_Small"
             android:hint="@string/lbl_date_assigned"
             android:inputType="date"/>
 
         <!-- Enter School Entry -->
         <EditText
             android:id="@+id/fld_da"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            style="@style/Text_Small"
             android:hint="@string/lbl_date_due"
             android:inputType="date"/>
 
         <!-- Enter Email Entry -->
         <EditText
             android:id="@+id/fld_aTotal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            style="@style/Text_Small"
             android:hint="@string/lbl_assignment_total"
             android:inputType="number"/>
 
         <!-- Enter Password Entry -->
         <EditText
             android:id="@+id/fld_aDescript"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            style="@style/Text_Small"
             android:hint="@string/lbl_descript"/>
     </LinearLayout>
 

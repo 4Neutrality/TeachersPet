@@ -6,9 +6,8 @@
     <!-- List Assignments -->
     <ListView
         android:id="@+id/assignments"
-        android:paddingBottom="50dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:paddingBottom="@dimen/bot_margin"
+        style="@style/LinearV"/>
 
     <Button
         android:id="@+id/bnt_assignment"
