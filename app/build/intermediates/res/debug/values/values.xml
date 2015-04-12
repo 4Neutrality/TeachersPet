@@ -194,8 +194,8 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
-    <dimen name="text_Large">22sp</dimen>
-    <dimen name="text_Medium">18sp</dimen>
+    <dimen name="text_Large">30sp</dimen>
+    <dimen name="text_Medium">22sp</dimen>
     <dimen name="text_XLarge">48sp</dimen>
     <dimen name="text_padding">6dip</dimen>
     <dimen name="text_small">14sp</dimen>
@@ -226,7 +226,7 @@
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="alphabet">abcdefghijklmnopqrstuvwxyz .,ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
-    <string name="app_name">TeacherPet</string>
+    <string name="app_name">Teacher\'s \t Pet</string>
     <string name="date">(23 September 2014)</string>
     <string name="hDue">Due Date</string>
     <string name="hGrade">HomeWork Grade</string>
@@ -374,6 +374,9 @@
         <item name="android:textSize">@dimen/text_Medium</item>
         <item name="android:textColor">@color/gold</item>
     </style>
+    <style name="BasicText2" parent="BasicText">
+        <item name="android:textColor">@color/black</item>
+    </style>
     <style name="GravityH">
         <item name="android:layout_width">@dimen/ZERO</item>
         <item name="android:layout_height">wrap_content</item>
@@ -515,7 +518,8 @@
     </style>
     <style name="TextTitle" parent="TextCenter">
         <item name="android:textSize">@dimen/text_Large</item>
-        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/dk_purple</item>
     </style>
     <style name="Text_Small" parent="BasicText">
         <item name="android:textSize">@dimen/text_small</item>

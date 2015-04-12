@@ -6,8 +6,8 @@
     <!-- List Assignments -->
     <ListView
         android:id="@+id/assignments"
-        android:paddingBottom="@dimen/bot_margin"
-        style="@style/LinearV"/>
+        style="@style/LinearInput"
+        android:paddingBottom="@dimen/bot_margin"/>
 
     <Button
         android:id="@+id/bnt_assignment"

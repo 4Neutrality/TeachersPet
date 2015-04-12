@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
@@ -29,7 +30,6 @@ public class BasicActivity extends Activity {
     //Ids of selected items
     ArrayList<String> redIDs = new ArrayList<>();
     ArrayList<String> greenIDs = new ArrayList<>();
-    Boolean emptyArray = false;
 
     /**
      * Changes activity from fromScreen to toScreen. Also if kill is true then destroy screen
@@ -316,9 +316,21 @@ public class BasicActivity extends Activity {
                 layout, keyNames, ids);
     }
 
-    private void checkEmptyArray(String element){
-        if(element.equals(""))
-            emptyArray = true;
+    /**
+     * Check if anything was added to the adapter.
+     * "" means nothing is in array from database but the database will count an empty array as
+     * a success. However a empty array is a fail so this checks for that.
+     *
+     * @return True if items were added.
+     */
+    protected boolean checkEmptyList(){
+        boolean emptyArray = true;
+        String  empty= alertList.get(AppCSTR.FIRST_ELEMENT).get(AppCSTR.NAME);
+        Log.e("CHECK: ", "" + empty.length());
+        if(!empty.equals("null") && !empty.equals("")) {
+            emptyArray = false;
+        }
+        return emptyArray;
     }
 
 
@@ -387,8 +399,8 @@ public class BasicActivity extends Activity {
 
     /**
      * @return True if array from database is empty.
-     */
-    protected Boolean getArrayStatus(){return emptyArray;}
+     *
+    protected Boolean getArrayStatus(){return emptyArray;}*/
 
 //********************************** ADAPTER END ****************************************************
 }

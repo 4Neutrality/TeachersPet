@@ -7,8 +7,7 @@
     <!-- Title -->
     <TextView
         android:id="@+id/title"
-        style="@style/TextCenter"
-        android:layout_marginBottom="@dimen/title_margin"/>
+        style="@style/TextTitle"/>
 
     <!-- Middle layout -->
     <ScrollView
@@ -16,7 +15,7 @@
         android:layout_below="@id/title">
         <TextView
             android:id="@+id/descript"
-            style="@style/BasicText"/>
+            style="@style/BasicText2"/>
     </ScrollView>
 
 </RelativeLayout>

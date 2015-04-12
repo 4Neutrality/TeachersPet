@@ -23,6 +23,8 @@ import com.example.teacherspet.view.ShowDetailActivity;
 public class AssignmentsActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     //Data collecting from web page
     String[] dataNeeded;
+    //ID for screen Layout
+    int layout;
 
 
     /**
@@ -34,7 +36,8 @@ public class AssignmentsActivity extends BasicActivity implements AdapterView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_19_assignments);
+        layout = R.layout.activity_19_assignments;
+        setContentView(layout);
         if(getType().equals(AppCSTR.PROFESSOR)){
             ((Button)findViewById(R.id.bnt_assignment)).setVisibility(View.VISIBLE);
         }
@@ -52,7 +55,7 @@ public class AssignmentsActivity extends BasicActivity implements AdapterView.On
         String[] dataPassed = new String[]{"cid", super.getCourseID()};
         dataNeeded = new String[]{"name", "dd", "da", "gradet", "dscript"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_ASSIGN, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_ASSIGN, this, layout,true);
     }
 
     /**
@@ -71,13 +74,14 @@ public class AssignmentsActivity extends BasicActivity implements AdapterView.On
             if (success == 0) {
                 ListView assignments = (ListView) findViewById(R.id.assignments);
                 int layout = R.layout.list_item;
-                int[] ids = new int[] {R.id.listItem};
+                int[] ids = new int[]{R.id.listItem};
 
                 assignments.setAdapter(super.makeAdapterArray(data, this, layout, ids));
                 assignments.setOnItemClickListener(this);
-            }else{
-                //Do nothing, user will see no alerts in his box.
-                Toast.makeText(this, "No Assignment Not graded!!", Toast.LENGTH_SHORT).show();
+                if (super.checkEmptyList()) {
+                    Toast.makeText(this, "No Assignments Not graded!!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         }
     }

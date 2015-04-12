@@ -36,6 +36,10 @@
         <item name="android:textColor">@color/gold</item>
     </style>
 
+    <style name="BasicText2" parent="BasicText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <!--***********************************BUTTONS********************************************-->
     <style name="BasicButton" parent="TextCenter">
         <item name="android:layout_margin">@dimen/btn_margin</item>
@@ -89,9 +93,8 @@
         <item name="android:background">@color/trans</item>
     </style>
 
-
     <!--***********************************TEXT********************************************-->
-    <!-- Basic Text Layout -->
+    <!-- Text Small Layout -->
     <style name="Text_Small" parent="BasicText">
         <item name="android:textSize">@dimen/text_small</item>
     </style>
@@ -108,25 +111,26 @@
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
-    <!--Center view in Parent -->
+    <!--Text for Title -->
     <style name="TextTitle" parent="TextCenter">
         <item name="android:textSize">@dimen/text_Large</item>
-        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/dk_purple</item>
     </style>
 
-    <!-- Basic Text Layout -->
+    <!-- Text for Input Views -->
     <style name="TextInput" parent="BasicText">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_Medium</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- Basic Text Layout -->
+    <!-- Text for Check Boxes -->
     <style name="TextCheck" parent="BasicText">
         <item name="android:textSize">@dimen/text_small</item>
     </style>
 
-    <!-- Basic Text Layout -->
+    <!-- Text with Padding -->
     <style name="TextPadding" parent="BasicText">
         <item name="android:paddingLeft">@dimen/text_padding</item>
         <item name="android:paddingTop">@dimen/text_padding</item>

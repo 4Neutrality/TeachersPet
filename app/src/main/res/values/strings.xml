@@ -6,7 +6,7 @@
     <string name="lbl_register">Register</string>
     <string name="lbl_delete">Delete</string>
     <string name="lbl_upload">Upload</string>
-    <string name="app_name">TeacherPet</string>
+    <string name="app_name">Teacher\'s \t Pet</string>
     <string name="lbl_enter_username">Enter Username</string>
     <string name="lbl_enter_pwd">Enter Password</string>
     <string name="lbl_login">Login</string>
@@ -136,8 +136,8 @@
     <string name="title_activity_students">StudentsActivity</string>
 
     <!-- *******************************LOGIN****************************************** -->
-    <string name="student_login">Fred</string>
-    <string name="student_login2">tail</string>
+    <string name="student_login">rob</string>
+    <string name="student_login2">tool</string>
 
     <string-array name="login_array">
         <item>student</item>

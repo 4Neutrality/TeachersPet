@@ -34,7 +34,7 @@ public class AlertsActivity extends BasicActivity implements AdapterView.OnItemC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        layout = R.layout.activity_5_alerts;
+        layout = R.layout.activity_list;
         setContentView(layout);
 
         startSearch();
@@ -67,7 +67,7 @@ public class AlertsActivity extends BasicActivity implements AdapterView.OnItemC
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS, -1);
             if (success == 0) {
-                ListView courseView = (ListView) findViewById(R.id.alertView);
+                ListView courseView = (ListView) findViewById(R.id.list);
                 //Get and pass data to make list adapter
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};

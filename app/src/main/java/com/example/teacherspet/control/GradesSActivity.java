@@ -20,6 +20,8 @@ import com.example.teacherspet.view.ShowDetailActivity;
  */
 public class GradesSActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     String[] dataNeeded;
+    //ID for screen layout
+    int layout;
 
     /**
 	 * When screen is created set to Grades layout.
@@ -30,7 +32,8 @@ public class GradesSActivity extends BasicActivity implements AdapterView.OnItem
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_17_grades);
+        layout = R.layout.activity_list;
+	    setContentView(layout);
 
         startSearch();
 	}
@@ -44,7 +47,7 @@ public class GradesSActivity extends BasicActivity implements AdapterView.OnItem
         String[] dataPassed = new String[]{"sid", super.getID(),"cid", super.getCourseID()};
         dataNeeded = new String[]{"names","dd","da","gradet","grader","dscript"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_GRADES, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_GRADES, this, layout, true);
     }
 
     /**
@@ -61,13 +64,13 @@ public class GradesSActivity extends BasicActivity implements AdapterView.OnItem
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS, -1);
             if (success == 0) {
-                ListView assignments = (ListView) findViewById(R.id.grades);
+                ListView assignments = (ListView) findViewById(R.id.list);
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};
                 assignments.setAdapter(super.makeAdapterArray(data, this, layout, ids));
                 assignments.setOnItemClickListener(this);
 
-                if(super.getArrayStatus()) {
+                if(super.checkEmptyList()) {
                     Toast.makeText(this, "No Grades", Toast.LENGTH_LONG).show();
                     finish();
                 }

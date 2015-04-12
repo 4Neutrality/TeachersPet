@@ -21,6 +21,8 @@ import com.example.teacherspet.model.BasicActivity;
 public class InformationActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     //Data collecting from web page
     String[] dataNeeded;
+    //ID for screen layout
+    int layout;
 
 	/**
 	 * When screen is created set to information layout.
@@ -31,7 +33,8 @@ public class InformationActivity extends BasicActivity implements AdapterView.On
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_14_information);
+        layout = R.layout.activity_list;
+		setContentView(layout);
 
         startSearch();
 	}
@@ -46,7 +49,7 @@ public class InformationActivity extends BasicActivity implements AdapterView.On
         String[] dataPassed = new String[]{"cid", super.getCourseID()};
         dataNeeded = new String[]{"name","address"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_EXTRA, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_EXTRA, this, layout, true);
     }
 
     /**
@@ -63,15 +66,16 @@ public class InformationActivity extends BasicActivity implements AdapterView.On
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS,-1);
             if(success == 0){
-                ListView attendance = (ListView) findViewById(R.id.extra);
+                ListView attendance = (ListView) findViewById(R.id.list);
 
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};
                 attendance.setAdapter(super.makeAdapterArray(data, this, layout, ids));
                 attendance.setOnItemClickListener(this);
-            } else {
-                //Do nothing, user will see no alerts in his box.
-                Toast.makeText(this, "No extras!!", Toast.LENGTH_SHORT).show();
+                if(super.checkEmptyList()){
+                    Toast.makeText(this, "No extras!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         }
     }

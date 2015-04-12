@@ -20,6 +20,8 @@ import com.example.teacherspet.model.BasicActivity;
 public class LabActivity extends BasicActivity implements AdapterView.OnItemClickListener {
     //Data collecting from web page
     String[] dataNeeded;
+    //ID for screen layout
+    int layout;
 
 	/**
 	 * When screen is created set to lab layout.
@@ -30,7 +32,8 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_18_lab);
+        layout = R.layout.activity_list;
+		setContentView(layout);
 
         startSearch();
 	}
@@ -45,7 +48,7 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
         String[] dataPassed = new String[]{"cid", super.getCourseID()};
         dataNeeded = new String[]{"name","address","lid"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_LAB, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_LAB, this, layout, true);
     }
 
     /**
@@ -62,15 +65,16 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS,-1);
             if(success == 0){
-                ListView labs = (ListView) findViewById(R.id.lab);
+                ListView labs = (ListView) findViewById(R.id.list);
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};
 
                 labs.setAdapter(super.makeAdapterArray(data, this, layout, ids));
                 labs.setOnItemClickListener(this);
-            } else {
-                //Do nothing, user will see no alerts in his box.
-                Toast.makeText(this, "No Labs!!", Toast.LENGTH_SHORT).show();
+                if(super.checkEmptyList()){
+                    Toast.makeText(this, "No Labs!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         }
     }
