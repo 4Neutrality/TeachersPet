@@ -4,27 +4,26 @@
     style="@style/BasicLayout"
     tools:context="com.example.teacherspet.control.HomeActivity" >
 
-    <LinearLayout
-        style="@style/LinearV"
-        android:layout_centerVertical="true">
-        <!-- Alert Button -->
-        <Button
-            android:id="@+id/btn_alerts"
-            android:text="@string/lbl_alerts"
-            style="@style/ActionButton"/>
-
         <!-- Course Button -->
          <Button
             android:id="@+id/btn_courses"
             android:text="@string/lbl_courses"
+             android:layout_centerInParent="true"
             style="@style/ActionButton" />
+
+        <!-- Alert Button -->
+        <Button
+            android:id="@+id/btn_alerts"
+            android:text="@string/lbl_alerts"
+            android:layout_above="@id/btn_courses"
+            style="@style/ActionButton"/>
 
          <!-- Schedule Button -->
          <Button
             android:id="@+id/btn_schedule"
             android:text="@string/lbl_schedule"
+             android:layout_below="@id/btn_courses"
             style="@style/ActionButton"/>
-    </LinearLayout>
 
 </RelativeLayout>
 <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_4_home.xml -->

@@ -48,6 +48,7 @@ public class GetItemActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Intent intent = getIntent();
+        setContentView(intent.getIntExtra(AppCSTR.LAYOUT, -1));
 		itemsPassed = intent.getStringArrayExtra(AppCSTR.DATA_PASSED);
 		itemsNeeded = intent.getStringArrayExtra(AppCSTR.DATA_NEEDED);
 		JSONTag = intent.getStringExtra(AppCSTR.JSON);

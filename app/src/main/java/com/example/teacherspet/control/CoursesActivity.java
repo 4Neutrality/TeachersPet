@@ -21,6 +21,8 @@ import java.util.HashMap;
  */
 public class CoursesActivity extends BasicActivity {
 	ArrayList<HashMap<String, String>> courseList;
+    //ID for screen layout
+    int layout;
     
 	/**
 	 * Sets screen to courses layout, finds user ID, and start searching for
@@ -31,7 +33,8 @@ public class CoursesActivity extends BasicActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_6_courses);
+        layout = R.layout.activity_6_courses;
+		setContentView(layout);
 		courseList = new ArrayList<>();
 		
 		startSearch();
@@ -46,7 +49,7 @@ public class CoursesActivity extends BasicActivity {
         String [] dataPassed = new String[]{"ID", super.getID()};
         String [] dataNeeded = new String[]{"course","courseID"};
 
-        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_LIST_COURSES, this, true);
+        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_LIST_COURSES, this, layout, true);
     }
 	
 	/**

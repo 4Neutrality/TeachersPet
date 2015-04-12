@@ -21,6 +21,8 @@ import com.example.teacherspet.view.ShowGradesActivity;
 public class GradesPActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     //Web page to connect to
     String[] dataNeeded;
+    //ID for screen layout
+    int layout;
 
     /**
 	 * When screen is created set to Grades layout.
@@ -31,7 +33,8 @@ public class GradesPActivity extends BasicActivity implements AdapterView.OnItem
 	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_17_grades);
+        layout = R.layout.activity_list;
+	    setContentView(layout);
 
         startSearch();
 	}
@@ -45,7 +48,7 @@ public class GradesPActivity extends BasicActivity implements AdapterView.OnItem
         String[] dataPassed = new String[]{"cid", super.getCourseID()};
         dataNeeded = new String[]{"assignment", "position"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_GRADED, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_GRADED, this, layout, true);
     }
 
     /**
@@ -63,14 +66,14 @@ public class GradesPActivity extends BasicActivity implements AdapterView.OnItem
             int success = data.getIntExtra(AppCSTR.SUCCESS, -1);
             if (success == 0) {
 
-                ListView show = (ListView) findViewById(R.id.grades);
+                ListView show = (ListView) findViewById(R.id.list);
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};
                 show.setAdapter(super.makeAdapterArray(data, this, layout, ids));
                 show.setOnItemClickListener(this);
 
-                if(super.getArrayStatus()) {
-                    Toast.makeText(this, "No Assignments not Graded", Toast.LENGTH_LONG).show();
+                if(super.checkEmptyList()) {
+                    Toast.makeText(this, "No Assignments Graded", Toast.LENGTH_LONG).show();
                     finish();
                 }
             }

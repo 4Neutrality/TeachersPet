@@ -21,6 +21,8 @@ import com.example.teacherspet.view.ShowDetailActivity;
 public class StudentsActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     //Data collecting from web page
     String[] dataNeeded;
+    //ID for screen layout
+    int layout;
 
 	/**
 	 * Set layout to students activity then start search for student
@@ -32,7 +34,8 @@ public class StudentsActivity extends BasicActivity implements AdapterView.OnIte
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_15_students);
+        layout = R.layout.activity_list;
+		setContentView(layout);
 		startSearch();
 	}
 
@@ -45,7 +48,7 @@ public class StudentsActivity extends BasicActivity implements AdapterView.OnIte
         String[] dataPassed = new String[]{"cid", super.getCourseID()};
         dataNeeded = new String[]{"name","email","type"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_ALL_USERS, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_ALL_USERS, this, layout, true);
     }
 
     /**
@@ -62,7 +65,7 @@ public class StudentsActivity extends BasicActivity implements AdapterView.OnIte
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS,-1);
             if(success == 0){
-                ListView showUsers = (ListView) findViewById(R.id.users);
+                ListView showUsers = (ListView) findViewById(R.id.list);
 
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};

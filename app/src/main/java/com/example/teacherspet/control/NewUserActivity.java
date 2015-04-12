@@ -2,14 +2,15 @@ package com.example.teacherspet.control;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.teacherspet.R;
 import com.example.teacherspet.model.AppCSTR;
 import com.example.teacherspet.model.BasicActivity;
-import com.example.teacherspet.R;
 
 /**
  * Creates a new user.
@@ -21,6 +22,8 @@ public class NewUserActivity extends BasicActivity {
     String name, accountnumber, college, email, password;
     CheckBox student;
     CheckBox professor;
+    //ID for layout
+    int layout;
 	
 	/**
 	 * When screen is created set to new user layout.
@@ -30,7 +33,8 @@ public class NewUserActivity extends BasicActivity {
 	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_3_new_user);
+        layout = R.layout.activity_3_new_user;
+		setContentView(layout);
 	}
 	
 	/**
@@ -59,7 +63,7 @@ public class NewUserActivity extends BasicActivity {
 		String [] itemNames = new String[]{"name","accountnumber","college","email","password","accounttype"};
 		String [] itemValues = getValues();
 
-        super.sendData("", itemNames, itemValues, AppCSTR.URL_CREATE_USER, this, false);
+        super.sendData("", itemNames, itemValues, AppCSTR.URL_CREATE_USER, this, layout, false);
 	}
 
     /**
@@ -94,13 +98,18 @@ public class NewUserActivity extends BasicActivity {
 	    if (requestCode == 0) {
 	    	//Tells if items where added or not. 1 mean successful
 	    	int success = data.getIntExtra("success", -1);
+            Log.e("SUCCESS: ", "" + success);
 	    	if(success == 0){
-	    		Toast.makeText(getApplicationContext(), "User created", Toast.LENGTH_SHORT).show();
-	    	}else {
-	    		Toast.makeText(getApplicationContext(), "No account created", Toast.LENGTH_SHORT).show();
-	    	}
+	    		Toast.makeText(getApplicationContext(), "User Created", Toast.LENGTH_SHORT).show();
+                super.start(this, LoginActivity.class, true);
+	    	}else if(success == 2){
+                Toast.makeText(getApplicationContext(), "920# already Exist!", Toast.LENGTH_SHORT).show();
+	    	}else if(success == 3){
+                Toast.makeText(getApplicationContext(), "Email already Exist!", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getApplicationContext(), "User Not Created!", Toast.LENGTH_SHORT).show();
+            }
 	    }
-        super.start(this, LoginActivity.class, true);
 	}
 	
 	/*

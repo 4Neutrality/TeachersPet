@@ -22,6 +22,8 @@ import com.example.teacherspet.model.SubmitATTN;
 public class AttendancePActivity extends BasicActivity implements AdapterView.OnItemClickListener{
 	//Data collecting from web page
 	String[] dataNeeded;
+    //ID for layout on screen
+    int layout;
 
 	/**
 	 * Set layout to attendance and look for students.
@@ -32,7 +34,8 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_13p_attendance);
+        layout = R.layout.activity_13p_attendance;
+		setContentView(layout);
 		startSearch();
 	}
 	
@@ -46,7 +49,7 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
 		String[] dataPassed = new String[]{"courseID", super.getCourseID(),"pid", super.getID()};
 		dataNeeded = new String[]{"studentName","studentID","status"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_STUDENTS, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_STUDENTS, this, layout ,true);
 	}
 	
 	/**
@@ -70,8 +73,9 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
                 attendance.setAdapter(super.makeAdapter(data, dataNeeded, this, layout, ids));
                 attendance.setOnItemClickListener(this);
             } else {
-                //Do nothing, user will see no alerts in his box.
-                Toast.makeText(this, "No students!!", Toast.LENGTH_SHORT);
+                //Exit screen professor has no students.
+                Toast.makeText(this, "No Students Registered!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         }
 	}
@@ -97,16 +101,24 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
      * @param view Button that was clicked.
      */
     public void onClicked(View view){
+        //Length of students that have been checked
+        int registerSize = super.getViewID(AppCSTR.GREEN_IDS).size() + super.getViewID(AppCSTR.RED_IDS).size();
+        final boolean studentsSelected = registerSize > AppCSTR.SIZE_ZERO;
         int viewID = view.getId();
 
         if(viewID == R.id.bnt_register){
-            takeRegister(true);
+            if(studentsSelected)
+               takeRegister(true);
+            else{
+                Toast.makeText(this, "No Students Selected!", Toast.LENGTH_SHORT).show();
+            }
         } else if(viewID == R.id.bnt_submit){
             //Allow register to be taken before submit attendance
             Thread timer = new Thread() {
                 public void run(){
                     try {
-                        takeRegister(false);
+                        if(studentsSelected)
+                          takeRegister(false);
                         sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();

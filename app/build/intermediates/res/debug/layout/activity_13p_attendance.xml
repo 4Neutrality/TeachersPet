@@ -21,6 +21,7 @@
     <!-- Bottom Buttons -->
     <LinearLayout
         style="@style/LinearH"
+        android:background="@color/trans"
         android:layout_alignParentBottom="true"
         android:weightSum="2">
         <Button

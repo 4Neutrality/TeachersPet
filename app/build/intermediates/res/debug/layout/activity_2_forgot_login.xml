@@ -4,13 +4,14 @@
     style="@style/BasicLayout"
     tools:context="com.example.teacherspet.control.ForgotLoginActivity" >
 
-    <!-- 920 Entry -->
+    <!-- Enter ID Entry -->
     <EditText
         android:id="@+id/userID"
-	    style="@style/BasicText"
         android:layout_centerVertical="true"
-        android:inputType="number"
-	    android:hint="@string/lbl_920" />
+        style="@style/TextInput"
+        android:hint="@string/lbl_enter_id"
+        android:inputType="number"/>
+
 	<!-- Submit Button -->
     <Button 
 	    style="@style/ActionButton"

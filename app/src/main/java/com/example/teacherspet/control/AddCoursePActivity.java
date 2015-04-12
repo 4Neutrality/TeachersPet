@@ -2,9 +2,10 @@ package com.example.teacherspet.control;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.teacherspet.R;
@@ -18,22 +19,25 @@ import com.example.teacherspet.model.BasicActivity;
  * @version 3/24/2015
  */
 public class AddCoursePActivity extends BasicActivity {
-    String cid,course;
-    //Name of field in database
-    String[] itemNames;
-    //Values to place into those fields
-    String[] itemValues;
+    String cid,course,section;
+    Spinner term,time, days;
+    //ID for screen layout
+    int layout;
 
 	/**
-	 * When screen is created set to professor add course layout.
+	 * When screen is created set to professor add course layout and populate drop down menus.
 	 * 
 	 * @param savedInstanceState Most recently supplied data.
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_9p_add_course);
+        layout = R.layout.activity_9p_add_course;
+		setContentView(layout);
+
+        setSpinnerData();
 	}
+
 	
 	/**
 	 * Get values for course and send to database.
@@ -42,11 +46,11 @@ public class AddCoursePActivity extends BasicActivity {
 	 */
 	public void onClicked(View view){
         if(isValidInput()) {
-            itemNames = new String[]{"id", "pname", "cid", "course", "term", "time", "section", "days"};
-            itemValues = new String[itemNames.length];
-            loadValues();
+            //Name of values to pass and their values
+            String[] itemNames = new String[]{"id", "pname", "cid", "course", "section", "term","time", "days"};
+            String[] itemValues = loadValues();
 
-            super.sendData("", itemNames, itemValues, AppCSTR.URL_CREATE_COURSE, this, false);
+            super.sendData("", itemNames, itemValues, AppCSTR.URL_CREATE_COURSE, this, layout, false);
         }
 	}
 
@@ -65,9 +69,10 @@ public class AddCoursePActivity extends BasicActivity {
             response = "Course ID must be at least 1 digit.";
         }
         else if (!course.matches("[a-zA-Z]{2}\\d{3}")) {
-            response = "Course Format (cs101).";
-        }
-        else {
+            response = "Course Format (xx101).";
+        }else if (section.length() < 1) {
+            response = "Section at least be 1 digit.";
+        }else {
             // Success
             return true;
         }
@@ -82,20 +87,48 @@ public class AddCoursePActivity extends BasicActivity {
     private void getText(){
         cid = ((EditText) findViewById(R.id.cid)).getText().toString();
         course = ((EditText) findViewById(R.id.course)).getText().toString();
+        section = ((EditText) findViewById(R.id.section)).getText().toString();
     }
 
     /**
      * FIll in data with what user entered.
      */
-    private void loadValues(){
+    private String[] loadValues(){
         //get all values that the user entered
-        int[] ids = new int[]{R.id.cid,R.id.course,R.id.term,R.id.time,R.id.section,R.id.days};
-        //First entry is user id, second for name
-        itemValues[AppCSTR.FIRST_ELEMENT] = super.getID();
-        Log.e("USERNAME: ", super.getName());
-        itemValues[AppCSTR.SECOND_ELEMENT] = super.getName();
-        for(int j = 2; j < itemNames.length; j++){
-            itemValues[j] = ((EditText) findViewById(ids[(j - 2)])).getText().toString();
+        String[] fields = new String[]{super.getID(), super.getName(), cid, course, section,
+                String.valueOf(term.getSelectedItem()),String.valueOf(time.getSelectedItem()),
+                String.valueOf(days.getSelectedItem())};
+        String[] itemValues = new String[fields.length];
+
+        //Get input from user along with their name and id
+        for(int j = 0; j < fields.length; j++){
+            itemValues[j] = fields[j];
+        }
+
+        return itemValues;
+    }
+
+    /**
+     * Add data to drop down menu.
+     */
+    private void setSpinnerData() {
+        int counter = 0;
+        //Drop down menus
+        term = (Spinner) findViewById(R.id.term);
+        time = (Spinner) findViewById(R.id.time);
+        days = (Spinner) findViewById(R.id.days);
+
+        Spinner[] spinners = new Spinner[]{term,time,days};
+        int[] ids = new int[]{R.array.term,R.array.time,R.array.days};
+
+       //Adding data to menu with an adapter
+        for(Spinner spin: spinners){
+            String[] list = getResources().getStringArray(ids[counter]);
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
+                    list);
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spin.setAdapter(dataAdapter);
+            counter ++;
         }
     }
 
@@ -114,11 +147,13 @@ public class AddCoursePActivity extends BasicActivity {
 	    	//0 means course was added
 	    	int success = data.getIntExtra(AppCSTR.SUCCESS, -1);
 	    	if(success == 0){
-	    		Toast.makeText(getApplicationContext(), "Course created", Toast.LENGTH_SHORT).show();
-	    	}else{
-	    		Toast.makeText(getApplicationContext(), "No course created", Toast.LENGTH_SHORT).show();
+	    		Toast.makeText(getApplicationContext(), "Course created!", Toast.LENGTH_SHORT).show();
+                super.start(this, AddCoursePActivity.class, true);
+	    	}else if(success == 2){
+                Toast.makeText(getApplicationContext(), "Course Already Exist!", Toast.LENGTH_SHORT).show();
+            }else {
+	    		Toast.makeText(getApplicationContext(), "No course created!", Toast.LENGTH_SHORT).show();
 	    	}
 	    }
-        super.start(this, AddCoursePActivity.class, true);
 	}
 }

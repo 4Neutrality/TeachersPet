@@ -12,8 +12,8 @@
 
     <!-- TEXT -->
     <dimen name="text_XLarge">48sp</dimen>
-    <dimen name="text_Large">22sp</dimen>
-    <dimen name="text_Medium">18sp</dimen>
+    <dimen name="text_Large">30sp</dimen>
+    <dimen name="text_Medium">22sp</dimen>
     <dimen name="text_small">14sp</dimen>
 
 </resources>
