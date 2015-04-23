@@ -47,8 +47,8 @@ public class AlertsActivity extends BasicActivity implements AdapterView.OnItemC
         //Name of JSON tag storing data
         String tag = "alerts";
         String[] dataPassed = new String[]{"id", super.getID()};
-        dataNeeded = new String[]{AppCSTR.ALERT_NAME, AppCSTR.ALERT_AID, AppCSTR.ALERT_SID,
-                     AppCSTR.ALERT_CID, AppCSTR.ALERT_ACTION, AppCSTR.ALERT_DESCRIPTION};
+        dataNeeded = new String[]{AppCSTR.ALERT_NAME, AppCSTR.AID, AppCSTR.ALERT_SID,
+                     AppCSTR.CID, AppCSTR.ALERT_ACTION, AppCSTR.ALERT_DESCRIPTION};
 
         super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_ALERTS, this, layout,true);
     }
@@ -93,9 +93,9 @@ public class AlertsActivity extends BasicActivity implements AdapterView.OnItemC
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
         Intent i = new Intent(this, Alert.class);
-        i.putExtra(AppCSTR.ALERT_AID, super.getNameorExtra(position, AppCSTR.ALERT_AID));
+        i.putExtra(AppCSTR.AID, super.getNameorExtra(position, AppCSTR.AID));
         i.putExtra(AppCSTR.ALERT_SID, super.getNameorExtra(position, AppCSTR.ALERT_SID));
-        i.putExtra(AppCSTR.ALERT_CID, super.getNameorExtra(position, AppCSTR.ALERT_CID));
+        i.putExtra(AppCSTR.CID, super.getNameorExtra(position, AppCSTR.CID));
         i.putExtra(AppCSTR.ALERT_ACTION, super.getNameorExtra(position, AppCSTR.ALERT_ACTION));
         i.putExtra(AppCSTR.ALERT_NAME, super.getNameorExtra(position, AppCSTR.ALERT_NAME));
         i.putExtra(AppCSTR.ALERT_DESCRIPTION, super.getNameorExtra(position, AppCSTR.ALERT_DESCRIPTION));

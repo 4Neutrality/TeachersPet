@@ -20,7 +20,7 @@ import com.example.teacherspet.model.BasicActivity;
  */
 public class AddCoursePActivity extends BasicActivity {
     String cid,course,section;
-    Spinner term,time, days;
+    Spinner time, days, term;
     //ID for screen layout
     int layout;
 

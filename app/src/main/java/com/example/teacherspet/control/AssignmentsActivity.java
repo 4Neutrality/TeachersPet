@@ -36,7 +36,7 @@ public class AssignmentsActivity extends BasicActivity implements AdapterView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        layout = R.layout.activity_19_assignments;
+        layout = R.layout.activity_list_add;
         setContentView(layout);
         if(getType().equals(AppCSTR.PROFESSOR)){
             ((Button)findViewById(R.id.bnt_assignment)).setVisibility(View.VISIBLE);
@@ -72,7 +72,7 @@ public class AssignmentsActivity extends BasicActivity implements AdapterView.On
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS, -1);
             if (success == 0) {
-                ListView assignments = (ListView) findViewById(R.id.assignments);
+                ListView assignments = (ListView) findViewById(R.id.addList);
                 int layout = R.layout.list_item;
                 int[] ids = new int[]{R.id.listItem};
 
@@ -80,7 +80,9 @@ public class AssignmentsActivity extends BasicActivity implements AdapterView.On
                 assignments.setOnItemClickListener(this);
                 if (super.checkEmptyList()) {
                     Toast.makeText(this, "No Assignments Not graded!!", Toast.LENGTH_SHORT).show();
-                    finish();
+                    ((ListView) findViewById(R.id.addList)).setVisibility(View.GONE);
+                    if(!getType().equals(AppCSTR.PROFESSOR))
+                        finish();
                 }
             }
         }
@@ -111,6 +113,6 @@ public class AssignmentsActivity extends BasicActivity implements AdapterView.On
      * @param view View that was interacted with by user.
      */
     public void onClicked(View view){
-        super.start(this, AddAssignmentActivity.class,false);
+        super.start(this, AddAssignmentActivity.class,true);
     }
 }

@@ -23,7 +23,7 @@
 
      <!-- Bottom Buttons -->
     <LinearLayout
-        style="@style/LinearV"
+        style="@style/LinearInput"
         android:layout_alignParentBottom="true">
         <Button
             android:id="@+id/bnt_submit"

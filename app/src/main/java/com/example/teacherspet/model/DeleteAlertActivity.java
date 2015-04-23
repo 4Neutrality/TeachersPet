@@ -12,6 +12,8 @@ import com.example.teacherspet.control.AlertsActivity;
 public class DeleteAlertActivity extends BasicActivity {
     //Holds data from activity that passed it
     Intent intent;
+    //ID background for screen
+    int layout;
 
     /**
      * Store alerts that need to be deleted and searched database for those alerts.
@@ -22,6 +24,7 @@ public class DeleteAlertActivity extends BasicActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		intent = getIntent();
+        layout = intent.getIntExtra(AppCSTR.LAYOUT, -1);
 
 		startSearch();
 	}
@@ -30,10 +33,10 @@ public class DeleteAlertActivity extends BasicActivity {
      * Gathers data needed in order to delete alert and sends to database.
      */
     private void startSearch(){
-        String[] itemNames = new String[]{AppCSTR.ALERT_AID};
-        String[] itemValues = new String[]{intent.getStringExtra(AppCSTR.ALERT_AID)};
+        String[] itemNames = new String[]{AppCSTR.AID};
+        String[] itemValues = new String[]{intent.getStringExtra(AppCSTR.AID)};
 
-        sendData("", itemNames, itemValues, AppCSTR.URL_DELETE_ALERT, this, false);
+        sendData("", itemNames, itemValues, AppCSTR.URL_DELETE_ALERT, this, layout, false);
     }
 	
 	/**

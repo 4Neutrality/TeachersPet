@@ -17,6 +17,8 @@ public class RegisterATTN extends BasicActivity{
     //Ids of students in course who are present.
     ArrayList<String> presentIDs;
     ArrayList<String> lateIDs;
+    //Id for background screen
+    int layout;
 
     /**
      * Gets the ids of students who are present and place them on rooster.
@@ -29,6 +31,7 @@ public class RegisterATTN extends BasicActivity{
         Intent intent = getIntent();
         presentIDs = intent.getStringArrayListExtra(AppCSTR.GREEN_IDS);
         lateIDs = intent.getStringArrayListExtra(AppCSTR.RED_IDS);
+        layout = intent.getIntExtra(AppCSTR.LAYOUT, -1);
 
         startSearch();
     }
@@ -66,7 +69,7 @@ public class RegisterATTN extends BasicActivity{
             itemValues[i] = lateIDs.get((i-start));
         }
 
-        super.sendData("", itemNames, itemValues, AppCSTR.URL_REGISTER_ATTENDANCE, this, false);
+        super.sendData("", itemNames, itemValues, AppCSTR.URL_REGISTER_ATTENDANCE, this, layout, false);
     }
 
     /**

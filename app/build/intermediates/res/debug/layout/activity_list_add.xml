@@ -5,9 +5,9 @@
     
     <!-- List Assignments -->
     <ListView
-        android:id="@+id/assignments"
+        android:id="@+id/addList"
         style="@style/LinearInput"
-        android:paddingBottom="@dimen/bot_margin"/>
+        android:paddingBottom="@dimen/plus_margin"/>
 
     <Button
         android:id="@+id/bnt_assignment"
@@ -15,3 +15,4 @@
         android:visibility="gone"/>
 
 </RelativeLayout>
+<!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_list_add.xml -->

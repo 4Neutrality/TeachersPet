@@ -62,6 +62,7 @@ public class AppCSTR {
     public static final String URL_STUDENT_ALERT = "https://morning-castle-9006.herokuapp.com/create_student_alert.php";
     public static final String URL_REGISTER_ATTENDANCE = "https://morning-castle-9006.herokuapp.com/register_attendance.php";
     public static final String URL_SUBMIT_ATTENDANCE = "https://morning-castle-9006.herokuapp.com/submit_attendance.php";
+    public static final String URL_GRADE_ASSIGNMENT = "https://morning-castle-9006.herokuapp.com/grade_assignment.php";
 
 
     //INDEXING*******************************************
@@ -70,6 +71,7 @@ public class AppCSTR {
     public static final int SECOND_ELEMENT = 1;
     public static final int THIRD_ELEMENT = 2;
     public static final int FOURTH_ELEMENT = 3;
+    public static final int FIFTH_ELEMENT = 4;
 
 
     //SIZE***********************************************
@@ -98,23 +100,21 @@ public class AppCSTR {
     public static final String RED_IDS = "redID";
     public static final String ALL_IDS = "viewID";
 
+    public static final String ASSIGNMENTS = "assignments";
+
 
     //______________________________________________________________________________________________
     //____________________________________SCREENS___________________________________________________
     //______________________________________________________________________________________________
 
 
-    //ADD COURSE*********************************************************
-    public static final int FIRST_ID = 0;
-
-
     //ALERT**************************************************************
-    public static final String ALERT_AID = "aid";
+    public static final String AID = "aid";
     public static final String ALERT_ACTION = "action";
     public static final String ALERT_NAME = "alert";
     public static final String ALERT_DESCRIPTION = "descript";
     public static final String ALERT_SID = "sid";
-    public static final String ALERT_CID = "cid";
+    public static final String CID = "cid";
 
 
     //ATTENDANCE*********************************************************
@@ -126,6 +126,10 @@ public class AppCSTR {
     public static final int TODAY_STATUS= 2;
     public static final int LATE= 1;
     public static final int PRESENT= 0;
+
+    //GRADES*************************************************************
+    public static final String SID = "sid";
+    public static final String GRADE = "grade";
 
 
     //LOGIN SCREEN*******************************************************

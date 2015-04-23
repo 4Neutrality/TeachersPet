@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearV"
+    android:layout_height="fill_parent"
+    tools:context="com.example.teacherspet.model.GradeAssignmentActivity">
+
+    <Spinner
+        android:id="@+id/assignment"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:layout_weight="6"
+        android:id="@+id/gradeInfo"
+        style="@style/BasicText"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/student"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        style="@style/TextInput"
+        android:inputType="textAutoComplete"
+        android:hint="@string/lbl_student"/>
+
+    <EditText
+        android:id="@+id/grade"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        style="@style/TextInput"
+        android:inputType="number"
+        android:hint="@string/lbl_grade"/>
+    <Button
+        android:id="@+id/gSubmit"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        style="@style/ActionButton"
+        android:text="@string/lbl_submit"/>
+
+</LinearLayout><!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_28_2_grade.xml -->

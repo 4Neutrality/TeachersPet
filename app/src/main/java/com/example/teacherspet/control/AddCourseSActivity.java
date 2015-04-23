@@ -22,6 +22,8 @@ import com.example.teacherspet.model.StudentAlertActivity;
 public class AddCourseSActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     //data returned from database
     String [] dataNeeded;
+    //Id of background screen
+    int layout;
 
 	/**
 	 * When screen is create set to student add course layout.
@@ -31,7 +33,8 @@ public class AddCourseSActivity extends BasicActivity implements AdapterView.OnI
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_10s_add_course);
+        layout = R.layout.activity_10s_add_course;
+		setContentView(layout);
 	}
 
     /**
@@ -52,6 +55,7 @@ public class AddCourseSActivity extends BasicActivity implements AdapterView.OnI
                 if(super.getViewID(AppCSTR.GREEN_IDS).size() != 0) {
                     Intent i = new Intent(this, StudentAlertActivity.class);
                     i.putStringArrayListExtra(AppCSTR.ALL_IDS, super.getViewID(AppCSTR.GREEN_IDS));
+                    i.putExtra(AppCSTR.LAYOUT, layout);
                     startActivity(i);
                     finish();
                 }
@@ -72,7 +76,7 @@ public class AddCourseSActivity extends BasicActivity implements AdapterView.OnI
         String [] dataPassed = new String[]{"cid",cid};
         dataNeeded = new String[]{"cid","pname","course","term","time","section"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_COURSES, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_COURSES, this, layout,true);
     }
 	
 	/**

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
@@ -48,34 +47,6 @@ public class BasicActivity extends Activity {
     }
 
     /**
-     * DELETE
-     * DELETE
-     * DELETE
-     *
-     * @param tag Name of contains that user wants to receive. Leave blank if a post method needed.
-     * @param data1 Get: Data needed to pass info/ Post: Values being set
-     * @param data2 Get: Data needed back/ Post: Values wanting to send
-     * @param url Php to get or post information
-     * @param callingActivity Activity that is invoking this method
-     * @param getItem True if needed to be a Get method/ False for Post method
-     */
-    protected void sendData(String tag, String [] data1, String [] data2, String url,
-                           Context callingActivity, Boolean getItem){
-        //sending data
-        Intent i;
-        if(getItem){
-            i = new Intent(callingActivity, GetItemActivity.class);
-            i.putExtra(AppCSTR.JSON, tag);
-        }else{
-            i = new Intent(callingActivity, PostItemActivity.class);
-        }
-        i.putExtra(AppCSTR.DATA_PASSED, data1);
-        i.putExtra(AppCSTR.DATA_NEEDED, data2);
-        i.putExtra(AppCSTR.URL, url);
-        startActivityForResult(i, AppCSTR.REQUEST_CODE);
-    }
-
-    /**
      * Takes data entered and is sent to the database to be retrieved or place information.
      *
      * @param tag Name of contains that user wants to receive. Leave blank if a post method needed.
@@ -110,10 +81,10 @@ public class BasicActivity extends Activity {
      */
     protected void makePref(){
         //Creates a shared pref called MyPref and 0-> MODE_PRIVATE
-        sharedPref = getSharedPreferences(AppCSTR.PREF_NAME, Context.MODE_PRIVATE);
-        //so the pref can be edit
-        edit = sharedPref.edit();
-    }
+    sharedPref = getSharedPreferences(AppCSTR.PREF_NAME, Context.MODE_PRIVATE);
+    //so the pref can be edit
+    edit = sharedPref.edit();
+}
 
     /**
      * Stores users' Account Type and id.
@@ -298,7 +269,7 @@ public class BasicActivity extends Activity {
         //Take off brackets of string array from database, what is to be displayed in list view.
         String[] names = arrayParser(item[AppCSTR.FIRST_ELEMENT]);
         int count = names.length;
-        String[] extras = getExtraInfo(item, count);
+        String[] extras = getExtraInfo(item, count, (item.length - 1));
 
         //checkEmptyArray(names[AppCSTR.FIRST_ELEMENT]);
         for(int i = 0; i < count; i++){
@@ -326,7 +297,6 @@ public class BasicActivity extends Activity {
     protected boolean checkEmptyList(){
         boolean emptyArray = true;
         String  empty= alertList.get(AppCSTR.FIRST_ELEMENT).get(AppCSTR.NAME);
-        Log.e("CHECK: ", "" + empty.length());
         if(!empty.equals("null") && !empty.equals("")) {
             emptyArray = false;
         }
@@ -339,22 +309,23 @@ public class BasicActivity extends Activity {
      *
      * @param item Holds all assignment data for student.
      * @param colLength Length that each array is going to be.
+     * @param itemsWanted How many items in the row wanted
      *
      * @return All assignments grouped by assignment.
      */
-    private String[] getExtraInfo(String[] item, int colLength){
+    protected String[] getExtraInfo(String[] item, int colLength, int itemsWanted){
         String[][] data = new String[item.length][colLength];
         String[] extras  = new String[item.length];
         String dataString = "";
 
         //getting all the data back except grade names
-        for(int i = 0; i < item.length - 1; i++) {
+        for(int i = 0; i < itemsWanted; i++) {
             data[i] = arrayParser(item[i+1]);
         }
 
         //Store all data for 1 assignment together
         for(int i = 0; i < colLength; i++) {
-            for(int j = 0; j < (item.length - 1); j++) {
+            for(int j = 0; j < itemsWanted; j++) {
                 dataString += data[j][i] + "%";
             }
             extras[i] = dataString;
@@ -372,7 +343,7 @@ public class BasicActivity extends Activity {
      * @return Array String in java
      */
     protected String[] arrayParser(String item){
-       return item.replaceAll("\\{|\\}|\\[|\\]|(\\d+\":)|\"", "").split(",");
+       return item.replaceAll("\\{|\\}|\\[|\\]|(\\d+\":)|\"|\\\\", "").split(",");
     }
 
 

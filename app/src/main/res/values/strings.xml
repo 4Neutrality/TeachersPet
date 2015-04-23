@@ -67,10 +67,11 @@
 
     <!-- *******************************ASSIGNMENTS*************************************** -->
     <string name="lbl_gName">Name of Assignment</string>
-    <string name="lbl_date_due">Date Assignment Due</string>
-    <string name="lbl_date_assigned">Date Assignment Assigned</string>
+    <string name="lbl_date_due">Date Due</string>
+    <string name="lbl_date_assigned">Date Assigned</string>
     <string name="lbl_assignment_total">Total For Grade</string>
     <string name="lbl_descript">Description of Assignment</string>
+    <string name="lbl_date">date</string>
 
     <!-- *******************************ALERTS****************************************** -->
     <string name="lbl_teacher">Teacher</string>
@@ -104,6 +105,9 @@
     <!-- *******************************GRADES****************************************** -->
     <string name="title_grades">Name Grade Complete Tardy</string>
     <string name="title_activity_selected_grades">GradeSelected</string>
+    <string name="lbl_grade">Student\'s Grade</string>
+    <string name="lbl_student">Student\'s Name</string>
+
 
     <!-- *******************************HOME****************************************** -->
     <string name="lbl_alerts">Alerts</string>
@@ -136,8 +140,8 @@
     <string name="title_activity_students">StudentsActivity</string>
 
     <!-- *******************************LOGIN****************************************** -->
-    <string name="student_login">rob</string>
-    <string name="student_login2">tool</string>
+    <string name="student_login">Fred</string>
+    <string name="student_login2">tail</string>
 
     <string-array name="login_array">
         <item>student</item>
@@ -200,5 +204,7 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_day_schedule">DayScheduleActivity</string>
+    <string name="title_activity_graded_assignment">GradedAssignmentActivity</string>
+    <string name="title_activity_take_grade">TakeGradeActivity</string>
 
 </resources>

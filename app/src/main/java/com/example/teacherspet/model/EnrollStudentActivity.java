@@ -10,6 +10,8 @@ import android.widget.Toast;
 public class EnrollStudentActivity extends BasicActivity {
     //Holds data from activity that passed it
     Intent intent;
+    //Id for background screen
+    int layout;
 
     /**
      * Adds student into the database.
@@ -20,6 +22,7 @@ public class EnrollStudentActivity extends BasicActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		intent = getIntent();
+        layout = intent.getIntExtra(AppCSTR.LAYOUT, -1);
 		startSearch();
 	}
 
@@ -28,10 +31,10 @@ public class EnrollStudentActivity extends BasicActivity {
      */
     private void startSearch(){
         String[] itemNames = new String[]{"sid","cid","id","cName"};
-        String[] itemValues = new String[]{intent.getStringExtra(AppCSTR.ALERT_SID),intent.getStringExtra(AppCSTR.ALERT_CID),
+        String[] itemValues = new String[]{intent.getStringExtra(AppCSTR.ALERT_SID),intent.getStringExtra(AppCSTR.CID),
                 super.getID(), intent.getStringExtra(AppCSTR.COURSE_NAME)};
 
-        sendData("", itemNames, itemValues, AppCSTR.URL_ENROLL_STUDENT, this, false);
+        sendData("", itemNames, itemValues, AppCSTR.URL_ENROLL_STUDENT, this, layout, false);
     }
 	
 	/**
@@ -52,13 +55,13 @@ public class EnrollStudentActivity extends BasicActivity {
 	    	if(success == 0){
 	    		Toast.makeText(getApplicationContext(), "Student Added", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(EnrollStudentActivity.this, DeleteAlertActivity.class);
-                i.putExtra(AppCSTR.ALERT_AID, intent.getStringExtra(AppCSTR.ALERT_AID));
+                i.putExtra(AppCSTR.LAYOUT, layout);
+                i.putExtra(AppCSTR.AID, intent.getStringExtra(AppCSTR.AID));
                 startActivity(i);
-                finish();
 	    	}else {
 	    		Toast.makeText(getApplicationContext(), "No Student Added", Toast.LENGTH_SHORT).show();
-                finish();
 	    	}
+            finish();
 	    }
 	}
 }

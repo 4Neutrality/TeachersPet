@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BasicLayout"
+    tools:context="com.example.teacherspet.control.AddAssignmentActivity">
+
+    <!-- Top Layout -->
+    <LinearLayout
+        style="@style/LinearInput">
+        <!-- Enter Name Entry -->
+        <EditText
+            android:id="@+id/fld_aName"
+            style="@style/TextInput"
+            android:hint="@string/lbl_gName"
+            android:inputType="text"/>
+
+        <LinearLayout
+            style="@style/LinearInput"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <!-- Enter ID Entry -->
+            <TextView
+                android:id="@+id/fld_dd"
+                style="@style/TextInput"
+                android:layout_weight="7"
+                android:layout_width="0dp"
+                android:hint="@string/lbl_date_due"/>
+
+            <Button
+                android:id="@+id/btn_dd"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                style="@style/ActionButton"
+                android:text="@string/lbl_date"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearInput"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <!-- Enter ID Entry -->
+            <!-- Enter School Entry -->
+            <TextView
+                android:id="@+id/fld_da"
+                style="@style/TextInput"
+                android:layout_weight="7"
+                android:layout_width="0dp"
+                android:hint="@string/lbl_date_assigned"
+                android:inputType="date"/>
+
+            <Button
+                android:id="@+id/btn_da"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                style="@style/ActionButton"
+                android:text="@string/lbl_date"/>
+        </LinearLayout>
+
+        <!-- Enter Email Entry -->
+        <EditText
+            android:id="@+id/fld_aTotal"
+            style="@style/TextInput"
+            android:hint="@string/lbl_assignment_total"
+            android:inputType="number"/>
+
+        <!-- Enter Password Entry -->
+        <EditText
+            android:id="@+id/fld_aDescript"
+            style="@style/TextInput"
+            android:hint="@string/lbl_descript"/>
+    </LinearLayout>
+
+    <!-- Bottom Submit Button -->
+    <Button
+        android:id="@+id/btn_submit"
+        style="@style/ActionButton"
+        android:layout_alignParentBottom="true"
+        android:text="@string/lbl_submit"/>
+
+</RelativeLayout>

@@ -6,7 +6,7 @@
     <!-- Top Layout -->
     <LinearLayout
         android:id="@+id/addTop"
-        style="@style/LinearH">
+        style="@style/TextInput">
         <!-- Professor Id Entry-->
 	    <EditText
 	        android:id="@+id/cID"
@@ -26,7 +26,7 @@
 
     <LinearLayout
         android:id="@+id/viewLayout"
-        style="@style/LinearV"
+        style="@style/LinearInput"
         android:layout_below="@id/addTop"
         android:layout_marginBottom="@dimen/bot_margin">
 	    <!-- Display Course View -->
@@ -38,8 +38,7 @@
         <ListView
             android:id="@+id/courseView"
             android:layout_weight="9"
-            style="@style/BasicLayout"
-            android:background="@android:color/white"/>
+            style="@style/TextInput"/>
     </LinearLayout>
     
     <!-- Submit Button -->

@@ -17,6 +17,8 @@ public class Alert extends BasicActivity{
     //Holds data from activity that passed it
     Intent intent;
     String courseName;
+    //ID for background layout
+    int layout;
 
     /**
      * Sets to default alert page.
@@ -26,7 +28,8 @@ public class Alert extends BasicActivity{
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.alertpage);
+        layout = R.layout.alertpage;
+        setContentView(layout);
 
         intent = getIntent();
         setScreen(intent.getStringExtra(AppCSTR.ALERT_NAME), intent.getStringExtra(AppCSTR.ALERT_ACTION));
@@ -67,16 +70,18 @@ public class Alert extends BasicActivity{
         switch(view.getId()){
             case R.id.bnt_delete:
                 Intent i = new Intent(this, DeleteAlertActivity.class);
-                i.putExtra(AppCSTR.ALERT_AID, intent.getStringExtra(AppCSTR.ALERT_AID));
+                i.putExtra(AppCSTR.AID, intent.getStringExtra(AppCSTR.AID));
+                i.putExtra(AppCSTR.LAYOUT, layout);
                 startActivity(i);
                 finish();
                 break;
             case R.id.bnt_submit:
                 Intent j = new Intent(this, EnrollStudentActivity.class);
                 j.putExtra(AppCSTR.ALERT_SID, intent.getStringExtra(AppCSTR.ALERT_SID));
-                j.putExtra(AppCSTR.ALERT_CID, intent.getStringExtra(AppCSTR.ALERT_CID));
-                j.putExtra(AppCSTR.ALERT_AID, intent.getStringExtra(AppCSTR.ALERT_AID));
+                j.putExtra(AppCSTR.CID, intent.getStringExtra(AppCSTR.CID));
+                j.putExtra(AppCSTR.AID, intent.getStringExtra(AppCSTR.AID));
                 j.putExtra(AppCSTR.COURSE_NAME, courseName);
+                j.putExtra(AppCSTR.LAYOUT, layout);
                 startActivity(j);
                 finish();
                 break;

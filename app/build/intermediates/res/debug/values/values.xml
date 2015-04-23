@@ -184,6 +184,8 @@
     <dimen name="abc_search_view_text_min_width">160dip</dimen>
     <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="bot_margin">50sp</dimen>
     <dimen name="btn_margin">3sp</dimen>
     <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values/values.xml -->
@@ -194,6 +196,7 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
+    <dimen name="plus_margin">90sp</dimen>
     <dimen name="text_Large">30sp</dimen>
     <dimen name="text_Medium">22sp</dimen>
     <dimen name="text_XLarge">48sp</dimen>
@@ -254,8 +257,9 @@
     <string name="lbl_cTime">Select Time</string>
     <string name="lbl_course">Course</string>
     <string name="lbl_courses">Courses</string>
-    <string name="lbl_date_assigned">Date Assignment Assigned</string>
-    <string name="lbl_date_due">Date Assignment Due</string>
+    <string name="lbl_date">date</string>
+    <string name="lbl_date_assigned">Date Assigned</string>
+    <string name="lbl_date_due">Date Due</string>
     <string name="lbl_days">Select What Days Course is on</string>
     <string name="lbl_delete">Delete</string>
     <string name="lbl_descript">Description of Assignment</string>
@@ -274,6 +278,7 @@
     <string name="lbl_forgot">Forgot Login</string>
     <string name="lbl_friday">Friday</string>
     <string name="lbl_gName">Name of Assignment</string>
+    <string name="lbl_grade">Student\'s Grade</string>
     <string name="lbl_grades">Grades</string>
     <string name="lbl_heading">Professor \t\t Course/Section \t Term \t\t\t Time</string>
     <string name="lbl_info">Additional Information</string>
@@ -289,6 +294,7 @@
     <string name="lbl_schedule">Schedule</string>
     <string name="lbl_semester">Semester</string>
     <string name="lbl_settings">Settings</string>
+    <string name="lbl_student">Student\'s Name</string>
     <string name="lbl_students">Students</string>
     <string name="lbl_submit">Submit</string>
     <string name="lbl_teacher">Teacher</string>
@@ -319,6 +325,7 @@
     <string name="title_activity_enroll_student">EnrollStudentActivity</string>
     <string name="title_activity_forgot_login">ForgotLoginActivity</string>
     <string name="title_activity_get_item">Get Item Screen</string>
+    <string name="title_activity_graded_assignment">GradedAssignmentActivity</string>
     <string name="title_activity_grades">GradesActivity</string>
     <string name="title_activity_home_">Home_Activity</string>
     <string name="title_activity_info">InfoActivity</string>

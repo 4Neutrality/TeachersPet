@@ -45,7 +45,6 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
 	private void startSearch(){
 		//Name of JSON tag storing data
 		String tag = "students";
-        //Log.d("CourseID: ", super.getCourseID());
 		String[] dataPassed = new String[]{"courseID", super.getCourseID(),"pid", super.getID()};
 		dataNeeded = new String[]{"studentName","studentID","status"};
 
@@ -117,8 +116,7 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
             Thread timer = new Thread() {
                 public void run(){
                     try {
-                        if(studentsSelected)
-                          takeRegister(false);
+                        takeRegister(false);
                         sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -140,6 +138,7 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
         Intent i = new Intent(this, RegisterATTN.class);
         i.putExtra(AppCSTR.GREEN_IDS, super.getViewID(AppCSTR.GREEN_IDS));
         i.putExtra(AppCSTR.RED_IDS, super.getViewID(AppCSTR.RED_IDS));
+        i.putExtra(AppCSTR.LAYOUT, layout);
         startActivity(i);
         if(finish){
             finish();

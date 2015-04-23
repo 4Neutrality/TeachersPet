@@ -20,6 +20,8 @@ import java.util.Locale;
  */
 public class AttendanceSActivity extends BasicActivity {
 	String[] dataNeeded;
+    //Id for the screen background
+    int layout;
 
 	/**
 	 * When screen is created set to attendance layout.
@@ -30,7 +32,8 @@ public class AttendanceSActivity extends BasicActivity {
 	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_13s_attendance);
+        layout = R.layout.activity_show_detail;
+		setContentView(layout);
 		startSearch();
 	}
 	
@@ -45,7 +48,7 @@ public class AttendanceSActivity extends BasicActivity {
         //Log.e("ID: ", super.getID());
 		dataNeeded = new String[]{"present","late","t_status","total_days","pname","course","date","status"};
 
-        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_STUDENT, this, true);
+        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_STUDENT, this, layout,true);
 	}
 	
 	/**
@@ -111,8 +114,8 @@ public class AttendanceSActivity extends BasicActivity {
                 "\n\nDays Total: \t" + total;
 
         //display on screen
-        ((TextView) findViewById(R.id.attnTitle)).setText(item[AppCSTR.COURSE]);
-        ((TextView) findViewById(R.id.attnView)).setText(message);
+        ((TextView) findViewById(R.id.title)).setText(item[AppCSTR.COURSE]);
+        ((TextView) findViewById(R.id.descript)).setText(message);
     }
 
     /**

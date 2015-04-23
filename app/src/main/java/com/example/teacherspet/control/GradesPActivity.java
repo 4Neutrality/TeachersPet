@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.teacherspet.R;
 import com.example.teacherspet.model.AppCSTR;
 import com.example.teacherspet.model.BasicActivity;
+import com.example.teacherspet.model.GradeAssignmentActivity;
 import com.example.teacherspet.view.ShowGradesActivity;
 
 /**
@@ -33,9 +35,10 @@ public class GradesPActivity extends BasicActivity implements AdapterView.OnItem
 	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        layout = R.layout.activity_list;
+        layout = R.layout.activity_list_add;
 	    setContentView(layout);
-
+        if(super.getType().equals(AppCSTR.PROFESSOR))
+            ((Button)findViewById(R.id.bnt_assignment)).setVisibility(View.VISIBLE);
         startSearch();
 	}
 
@@ -65,8 +68,7 @@ public class GradesPActivity extends BasicActivity implements AdapterView.OnItem
         if (requestCode == 0) {
             int success = data.getIntExtra(AppCSTR.SUCCESS, -1);
             if (success == 0) {
-
-                ListView show = (ListView) findViewById(R.id.list);
+                ListView show = (ListView) findViewById(R.id.addList);
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};
                 show.setAdapter(super.makeAdapterArray(data, this, layout, ids));
@@ -74,7 +76,9 @@ public class GradesPActivity extends BasicActivity implements AdapterView.OnItem
 
                 if(super.checkEmptyList()) {
                     Toast.makeText(this, "No Assignments Graded", Toast.LENGTH_LONG).show();
-                    finish();
+                    ((ListView) findViewById(R.id.addList)).setVisibility(View.GONE);
+                    if(!getType().equals(AppCSTR.PROFESSOR))
+                       finish();
                 }
             }
         }
@@ -95,5 +99,14 @@ public class GradesPActivity extends BasicActivity implements AdapterView.OnItem
         i.putExtra(AppCSTR.SHOW_NAME, super.getNameorExtra(position, AppCSTR.SHOW_NAME));
         i.putExtra(AppCSTR.SHOW_EXTRA, super.getNameorExtra(position, AppCSTR.SHOW_EXTRA));
         startActivity(i);
+    }
+
+    /**
+     * Go to grade assignment screen.
+     *
+     * @param view View that was interacted with by user.
+     */
+    public void onClicked(View view){
+        super.start(this, GradeAssignmentActivity.class,true);
     }
 }

@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 /**
  * Adds an alert to alerts database warning professor someone is waiting to enroll in course.
+ *
+ * @author Johnathon Malott, Kevin James
+ * @version 3/21/2015
  */
 public class StudentAlertActivity extends BasicActivity {
     //Holds student ID
@@ -18,6 +21,8 @@ public class StudentAlertActivity extends BasicActivity {
   	String[] itemNames;
   	//Data collecting from web page
   	String[] itemValues;
+    //ID for background layout
+    int layout;
 
     /**
      * Get data that was passed to this intent and stores it.
@@ -29,6 +34,7 @@ public class StudentAlertActivity extends BasicActivity {
 		super.onCreate(savedInstanceState);
 		Intent intent = getIntent();
 		viewIDs = intent.getStringArrayListExtra(AppCSTR.ALL_IDS);
+        layout = intent.getIntExtra(AppCSTR.LAYOUT, -1);
 		startSearch();
 	}
 
@@ -37,8 +43,8 @@ public class StudentAlertActivity extends BasicActivity {
      */
     private void startSearch(){
         itemNames = new String[]{"sid", "cid", "sName"};
-        itemValues = new String[]{super.getID() , viewIDs.get(AppCSTR.FIRST_ID), super.getName()};
-        super.sendData("", itemNames, itemValues, AppCSTR.URL_STUDENT_ALERT, this, false);
+        itemValues = new String[]{super.getID() , viewIDs.get(AppCSTR.FIRST_ELEMENT), super.getName()};
+        super.sendData("", itemNames, itemValues, AppCSTR.URL_STUDENT_ALERT, this, layout, false);
     }
 	
 	/**
@@ -58,9 +64,11 @@ public class StudentAlertActivity extends BasicActivity {
 	    	//Log.d("Alert Success", "" + success);
 	    	if(success == 0){
 	    		Toast.makeText(getApplicationContext(), "Course submitted", Toast.LENGTH_SHORT).show();
+	    	}else if(success == 3){
+	    		Toast.makeText(getApplicationContext(), "Course already submitted", Toast.LENGTH_SHORT).show();
 	    	}else {
-	    		Toast.makeText(getApplicationContext(), "Course not submitted", Toast.LENGTH_SHORT).show();
-	    	}
+                Toast.makeText(getApplicationContext(), "Course not submitted", Toast.LENGTH_SHORT).show();
+            }
 	    }
         super.start(this, CoursesActivity.class, true);
 	}
