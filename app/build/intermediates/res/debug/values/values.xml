@@ -346,6 +346,7 @@
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="title_activity_student_alert">Student Alert</string>
     <string name="title_activity_students">StudentsActivity</string>
+    <string name="title_activity_take_grade">TakeGradeActivity</string>
     <string name="title_alert">Alert</string>
     <string name="title_grades">Name Grade Complete Tardy</string>
     <string name="weight">10</string>

@@ -130,6 +130,7 @@ public class AppCSTR {
     //GRADES*************************************************************
     public static final String SID = "sid";
     public static final String GRADE = "grade";
+    public static final String POSITION = "position";
 
 
     //LOGIN SCREEN*******************************************************

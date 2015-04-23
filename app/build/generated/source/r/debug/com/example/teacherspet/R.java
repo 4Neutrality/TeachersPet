@@ -1103,11 +1103,12 @@ containing a value of this type.
         public static final int menu_show_grades=0x7f0d0018;
         public static final int menu_show_lab=0x7f0d0019;
         public static final int menu_splash_screen=0x7f0d001a;
-        public static final int new_user=0x7f0d001b;
-        public static final int schedule=0x7f0d001c;
-        public static final int send_pid=0x7f0d001d;
-        public static final int settings=0x7f0d001e;
-        public static final int students=0x7f0d001f;
+        public static final int menu_take_grade=0x7f0d001b;
+        public static final int new_user=0x7f0d001c;
+        public static final int schedule=0x7f0d001d;
+        public static final int send_pid=0x7f0d001e;
+        public static final int settings=0x7f0d001f;
+        public static final int students=0x7f0d0020;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f0b0000;
@@ -1242,9 +1243,10 @@ containing a value of this type.
         public static final int title_activity_splash_screen=0x7f0b0081;
         public static final int title_activity_student_alert=0x7f0b0082;
         public static final int title_activity_students=0x7f0b0083;
-        public static final int title_alert=0x7f0b0084;
-        public static final int title_grades=0x7f0b0085;
-        public static final int weight=0x7f0b0086;
+        public static final int title_activity_take_grade=0x7f0b0084;
+        public static final int title_alert=0x7f0b0085;
+        public static final int title_grades=0x7f0b0086;
+        public static final int weight=0x7f0b0087;
     }
     public static final class style {
         public static final int ActionButton=0x7f0c0000;

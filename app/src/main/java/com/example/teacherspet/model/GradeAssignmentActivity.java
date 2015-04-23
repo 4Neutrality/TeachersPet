@@ -27,11 +27,11 @@ public class GradeAssignmentActivity extends BasicActivity {
     //Max points user can receive on a assignment.
     int maxPoints;
     //Row that has all assignment information, extra data in that row
-    String[] assgRow, extras;
+    String[] assgRow, extras, names;
     HashMap<String, String> map = new HashMap<>();
     Spinner assignments;
     String aid;
-    int position;
+    int pos;
 
     /**
      * When screen is created set to assignment layout.
@@ -61,7 +61,7 @@ public class GradeAssignmentActivity extends BasicActivity {
                     i.putExtra(AppCSTR.SID, map.get(name));
                     i.putExtra(AppCSTR.NAME, name);
                     i.putExtra(AppCSTR.CID, super.getCourseID());
-                    i.putExtra(AppCSTR.POSITION, position);
+                    i.putExtra(AppCSTR.POSITION, pos);
                     i.putExtra(AppCSTR.LAYOUT, layout);
                     i.putExtra(AppCSTR.GRADE, ((EditText) findViewById(R.id.grade)).getText().toString());
                     startActivity(i);
@@ -137,7 +137,8 @@ public class GradeAssignmentActivity extends BasicActivity {
                                        int position, long id) {
                 String[] details = extras[position].split("%");
                 maxPoints = Integer.parseInt(details[AppCSTR.FIRST_ELEMENT]);
-                position = ;
+                position = position;
+                pos = position;
                 String message = "Grade Total: " + details[AppCSTR.FIRST_ELEMENT] +
                         "\n\n Description: " + details[AppCSTR.SECOND_ELEMENT];
                 ((TextView) findViewById(R.id.gradeInfo)).setText(message);
@@ -162,7 +163,7 @@ public class GradeAssignmentActivity extends BasicActivity {
     private void setAuto(String studentInfo){
         String[] data = studentInfo.split("#");
         String[] sids = new String[data.length];
-        String[] names = new String[data.length];
+        names = new String[data.length];
 
         String[] info;
         for(int i = 0; i < data.length; i++){

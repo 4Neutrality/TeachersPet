@@ -247,6 +247,10 @@
             android:name="com.example.teacherspet.model.GradeAssignmentActivity"
             android:label="@string/title_activity_graded_assignment" >
         </activity>
+        <activity
+            android:name="com.example.teacherspet.model.TakeGradeActivity"
+            android:label="@string/title_activity_take_grade" >
+        </activity>
     </application>
 
 </manifest>

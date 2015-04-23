@@ -30,7 +30,7 @@ public class TakeGradeActivity extends BasicActivity {
      * Sends new assignment to database.
      */
     private void sendItems() {
-        String[] itemNames = new String[]{"sid", "name", "cid", "grade"};
+        String[] itemNames = new String[]{"sid", "name", "cid", "grade","pos"};
         String[] itemValues = getValues();
 
         sendData("", itemNames, itemValues, AppCSTR.URL_GRADE_ASSIGNMENT, this, i.getIntExtra(AppCSTR.LAYOUT,-1), false);
@@ -38,6 +38,6 @@ public class TakeGradeActivity extends BasicActivity {
 
     private String[] getValues(){
         return new String[]{i.getStringExtra(AppCSTR.SID), i.getStringExtra(AppCSTR.NAME),
-                            i.getStringExtra(AppCSTR.CID), i.getStringExtra(AppCSTR.GRADE)};
+                            i.getStringExtra(AppCSTR.CID), i.getStringExtra(AppCSTR.GRADE), i.getStringExtra(AppCSTR.POSITION)};
     }
 }

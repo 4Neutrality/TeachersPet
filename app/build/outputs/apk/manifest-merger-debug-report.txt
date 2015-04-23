@@ -425,3 +425,9 @@ ADDED from AndroidManifest.xml:246:9
 		ADDED from AndroidManifest.xml:248:13
 	android:name
 		ADDED from AndroidManifest.xml:247:13
+activity#com.example.teacherspet.model.TakeGradeActivity
+ADDED from AndroidManifest.xml:250:9
+	android:label
+		ADDED from AndroidManifest.xml:252:13
+	android:name
+		ADDED from AndroidManifest.xml:251:13
