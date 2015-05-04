@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BasicLayout"
+    tools:context="com.example.teacherspet.control.AttendancePActivity" >
+
+    <!-- Header for Screen -->
+    <TextView
+        android:id="@+id/head_take_attn"
+        style="@style/TextTitle"
+        android:text="@string/title_take_attn"/>
+
+    <!-- Toplayout -->
+    <ListView
+        android:layout_below="@id/head_take_attn"
+        android:background="@color/trans"
+        android:layout_marginBottom="@dimen/bot_margin"
+        android:fillViewport="true"
+        android:id="@+id/attnView"
+        style="@style/BasicLayout"/>
+
+    <!-- Bottom Buttons -->
+    <LinearLayout
+        style="@style/LinearH"
+        android:background="@color/trans"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/bnt_submit"
+            style="@style/ActionButton"
+            android:text="@string/lbl_submit"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/bnt_register"
+            style="@style/ActionButton"
+            android:text="@string/lbl_register"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</RelativeLayout>

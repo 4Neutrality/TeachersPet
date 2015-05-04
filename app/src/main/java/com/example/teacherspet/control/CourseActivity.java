@@ -7,6 +7,7 @@ import android.view.View;
 import com.example.teacherspet.R;
 import com.example.teacherspet.model.AppCSTR;
 import com.example.teacherspet.model.BasicActivity;
+import com.example.teacherspet.view.AttendancePScreenActivity;
 import com.example.teacherspet.view.InformationActivity;
 import com.example.teacherspet.view.LabActivity;
 
@@ -45,7 +46,7 @@ public class CourseActivity extends BasicActivity {
 		switch(view.getId()){
 		    case R.id.btn_attendance:
                 if(typeP)
-		    	    toScreen = AttendancePActivity.class;
+		    	    toScreen = AttendancePScreenActivity.class;
                 else{
                     toScreen = AttendanceSActivity.class;
                 }

@@ -91,7 +91,7 @@ public class LabActivity extends BasicActivity implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
         String[] extra = super.getNameorExtra(position, AppCSTR.EXTRA).split("%");
-        String url = "http://" + extra[AppCSTR.FIRST_ELEMENT];
+        String url = extra[AppCSTR.FIRST_ELEMENT];
         Log.e("URL: ", url);
 
         Intent i = new Intent(this, ShowLabActivity.class);

@@ -1,12 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-   style="@style/BasicLayout"
+    style="@style/BasicLayout"
     tools:context="com.example.teacherspet.view.ShowDetailActivity">
 
     <!-- Title -->
     <TextView
         android:id="@+id/title"
         style="@style/BasicText"
+        android:background="@color/trans"
         android:layout_marginBottom="@dimen/title_margin"/>
 
     <Button
@@ -26,6 +27,7 @@
     <!-- Middle layout -->
     <RelativeLayout
         style="@style/BasicLayout"
+        android:background="@color/trans"
         android:layout_marginBottom="@dimen/bot_margin"
         android:layout_below="@id/title">
 
@@ -39,7 +41,8 @@
             style="@style/BasicLayout"
             android:visibility="gone">
             <RelativeLayout
-                style="@style/LinearV">
+                style="@style/LinearV"
+                android:background="@color/trans">
                 <EditText
                     android:id="@+id/student"
                     style="@style/Text_Small"

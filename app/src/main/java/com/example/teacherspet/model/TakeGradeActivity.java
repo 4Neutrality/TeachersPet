@@ -2,6 +2,7 @@ package com.example.teacherspet.model;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 /**
  * Record students grade in database.
@@ -21,7 +22,7 @@ public class TakeGradeActivity extends BasicActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent i = getIntent();
+        i = getIntent();
 
         sendItems();
     }
@@ -36,8 +37,34 @@ public class TakeGradeActivity extends BasicActivity {
         sendData("", itemNames, itemValues, AppCSTR.URL_GRADE_ASSIGNMENT, this, i.getIntExtra(AppCSTR.LAYOUT,-1), false);
     }
 
+    /**
+     * Place assignments in spinner to choose from.
+     *
+     * @param requestCode Number that was assigned to the intent being called.
+     * @param resultCode RESULT_OK if successful, RESULT_CANCELED if failed
+     * @param data Intent that was just exited.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        //Check request that this is response to
+        if (requestCode == 0) {
+            int success = data.getIntExtra(AppCSTR.SUCCESS,-1);
+            if(success == 0){
+                Toast.makeText(this, "Grade added!", Toast.LENGTH_SHORT).show();
+            } else {
+                //Exit screen professor has no students.
+                Toast.makeText(this, "No Grade Added!", Toast.LENGTH_SHORT).show();
+            }
+            finish();
+        }
+    }
+
     private String[] getValues(){
-        return new String[]{i.getStringExtra(AppCSTR.SID), i.getStringExtra(AppCSTR.NAME),
-                            i.getStringExtra(AppCSTR.CID), i.getStringExtra(AppCSTR.GRADE), i.getStringExtra(AppCSTR.POSITION)};
+        return new String[]{i.getStringExtra(AppCSTR.SID),
+                i.getStringExtra(AppCSTR.NAME),
+                            i.getStringExtra(AppCSTR.CID),
+                i.getStringExtra(AppCSTR.GRADE),
+                i.getStringExtra(AppCSTR.POSITION)};
     }
 }

@@ -1,39 +1,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BasicLayout"
-    tools:context="com.example.teacherspet.control.AttendancePActivity" >
+    tools:context="com.example.teacherspet.view.AttendancePScreenActivity" >
 
-    <!-- Toplayout -->
-    <ScrollView
-        style="@style/BasicLayout"
-        android:layout_marginBottom="@dimen/bot_margin"
-        android:fillViewport="true">
-        <LinearLayout
-            android:id="@+id/viewLayout"
-            style="@style/LinearV">
-            <!-- Display Course View -->
-            <ListView
-                android:id="@+id/attnView"
-                style="@style/BasicLayout"/>
-        </LinearLayout>
-    </ScrollView>
+    <!-- Header for Screen -->
+    <TextView
+        android:id="@+id/head_attn"
+        style="@style/TextTitle"
+        android:text="@string/title_attn"/>
 
-    <!-- Bottom Buttons -->
-    <LinearLayout
-        style="@style/LinearH"
-        android:background="@color/trans"
-        android:layout_alignParentBottom="true"
-        android:weightSum="2">
-        <Button
-            android:id="@+id/bnt_submit"
-            style="@style/ActionButton"
-            android:text="@string/lbl_submit"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/bnt_register"
-            style="@style/ActionButton"
-            android:text="@string/lbl_register"
-            android:layout_weight="1"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_undo_r"
+        style="@style/ActionButton"
+        android:layout_centerVertical="true"
+        android:text="@string/lbl_undo_r" />
+
+    <Button
+        android:id="@+id/btn_undo_s"
+        style="@style/ActionButton"
+        android:layout_below="@id/btn_undo_r"
+        android:text="@string/lbl_undo_s" />
+
+    <Button
+        android:id="@+id/btn_take"
+        style="@style/ActionButton"
+        android:layout_above="@id/btn_undo_r"
+        android:text="@string/lbl_take" />
 
 </RelativeLayout>

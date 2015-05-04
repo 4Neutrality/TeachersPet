@@ -206,14 +206,14 @@ public class BasicActivity extends Activity {
 
         if(color == AppCSTR.GREEN){
             if(twoColors)
-                view.setBackgroundColor(AppCSTR.WHITE);
+                view.setBackgroundColor(AppCSTR.TRANS);
             else {
                 view.setBackgroundColor(AppCSTR.RED);
                 redIDs.add(getList().get(position).get(key));
             }
             greenIDs.remove(getList().get(position).get(key));
         }else if(color == AppCSTR.RED){
-            view.setBackgroundColor(AppCSTR.WHITE);
+            view.setBackgroundColor(AppCSTR.TRANS);
             redIDs.remove(getList().get(position).get(key));
         }else{
             view.setBackgroundColor(AppCSTR.GREEN);

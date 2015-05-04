@@ -11,6 +11,7 @@ import android.graphics.Color;
 public class AppCSTR {
     //Five second delay
     public static final int PAUSE = 5000;
+    public static final int PAUSE2 = 1000;
     //Display message when loading
     public static final String GET_MESSAGE = "Loading data. Please wait...";
     public static final String POST_MESSAGE = "Creating. Please wait...";
@@ -61,6 +62,7 @@ public class AppCSTR {
     public static final String URL_ENROLL_STUDENT = "https://morning-castle-9006.herokuapp.com/enroll_student.php";
     public static final String URL_STUDENT_ALERT = "https://morning-castle-9006.herokuapp.com/create_student_alert.php";
     public static final String URL_REGISTER_ATTENDANCE = "https://morning-castle-9006.herokuapp.com/register_attendance.php";
+    public static final String URL_UNREGISTER_ATTENDANCE = "https://morning-castle-9006.herokuapp.com/unregister_attendance.php";
     public static final String URL_SUBMIT_ATTENDANCE = "https://morning-castle-9006.herokuapp.com/submit_attendance.php";
     public static final String URL_GRADE_ASSIGNMENT = "https://morning-castle-9006.herokuapp.com/grade_assignment.php";
 

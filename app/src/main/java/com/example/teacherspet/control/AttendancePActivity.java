@@ -14,7 +14,7 @@ import com.example.teacherspet.model.RegisterATTN;
 import com.example.teacherspet.model.SubmitATTN;
 
 /**
- * List all users that are registered for current class.
+ * List all students that are signed up for the current class so that their attendance can be taken.
  * 
  * @author Johnathon Malott, Kevin James
  * @version 3/24/2014
@@ -22,37 +22,35 @@ import com.example.teacherspet.model.SubmitATTN;
 public class AttendancePActivity extends BasicActivity implements AdapterView.OnItemClickListener{
 	//Data collecting from web page
 	String[] dataNeeded;
-    //ID for layout on screen
-    int layout;
 
 	/**
-	 * Set layout to attendance and look for students.
+	 * Set layout to take attendance and look for students.
 	 * 
 	 * @param savedInstanceState Most recently supplied data.
-	 * @Override
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        layout = R.layout.activity_13p_attendance;
+        int layout = R.layout.activity_13p_2_attendance;
 		setContentView(layout);
-		startSearch();
+		startSearch(layout);
 	}
 	
 	/**
-	 * Send data to database to get all users name, id, today's status.
+	 * Send data to database to get all users names, ids, their attendance status.
 	 */
-	private void startSearch(){
+	private void startSearch(int layout){
 		//Name of JSON tag storing data
 		String tag = "students";
-		String[] dataPassed = new String[]{"courseID", super.getCourseID(),"pid", super.getID()};
+		String[] dataPassed = new String[]{"courseID", super.getCourseID(),"pid", super.getID(),
+                                          "status", "IS NULL"};
 		dataNeeded = new String[]{"studentName","studentID","status"};
 
         sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_STUDENTS, this, layout ,true);
 	}
 	
 	/**
-	 * List all users in the class to the screen.
+	 * List all students in the class to the screen.
 	 * 
 	 * @param requestCode Number that was assigned to the intent being called.
 	 * @param resultCode RESULT_OK if successful, RESULT_CANCELED if failed
@@ -66,21 +64,20 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
             int success = data.getIntExtra(AppCSTR.SUCCESS,-1);
             if(success == 0){
                 ListView attendance = (ListView) findViewById(R.id.attnView);
-
                 int layout = R.layout.list_item;
                 int[] ids = new int[] {R.id.listItem};
                 attendance.setAdapter(super.makeAdapter(data, dataNeeded, this, layout, ids));
                 attendance.setOnItemClickListener(this);
             } else {
                 //Exit screen professor has no students.
-                Toast.makeText(this, "No Students Registered!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No Students Signed UP!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }
 	}
 
     /**
-     * When student is selected change background color and add id to the list.
+     * When student is selected change background color and add id to present or late list.
      *
      * @param parent Where clicked happen.
      * @param view View that was clicked
@@ -95,37 +92,35 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
 
     /**
      * Register: stores students current status and takes off list.
-     * Submit: takes register then attendance for the day
+     * Submit: takes register then attendance for the day.
      *
      * @param view Button that was clicked.
      */
     public void onClicked(View view){
         //Length of students that have been checked
         int registerSize = super.getViewID(AppCSTR.GREEN_IDS).size() + super.getViewID(AppCSTR.RED_IDS).size();
-        final boolean studentsSelected = registerSize > AppCSTR.SIZE_ZERO;
         int viewID = view.getId();
 
         if(viewID == R.id.bnt_register){
-            if(studentsSelected)
+            if(registerSize > AppCSTR.SIZE_ZERO)
                takeRegister(true);
             else{
                 Toast.makeText(this, "No Students Selected!", Toast.LENGTH_SHORT).show();
             }
         } else if(viewID == R.id.bnt_submit){
-            //Allow register to be taken before submit attendance
-            Thread timer = new Thread() {
-                public void run(){
-                    try {
-                        takeRegister(false);
-                        sleep(5000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
+            takeRegister(false);
+            new android.os.Handler().postDelayed(new Runnable() {
+                /** Starts the main screen after 5 seconds.*/
+                @Override
+                public void run() {
+                    Intent menu = new Intent(AttendancePActivity.this, SubmitATTN.class);
+                    startActivity(menu);
+                    // Close activity
+                    finish();
                 }
-            };
-            timer.start();
-            super.start(this, SubmitATTN.class, true);
+                // Delay for 5 seconds
+            }, AppCSTR.PAUSE2);
+            finish();
         }
     }
 
@@ -138,7 +133,7 @@ public class AttendancePActivity extends BasicActivity implements AdapterView.On
         Intent i = new Intent(this, RegisterATTN.class);
         i.putExtra(AppCSTR.GREEN_IDS, super.getViewID(AppCSTR.GREEN_IDS));
         i.putExtra(AppCSTR.RED_IDS, super.getViewID(AppCSTR.RED_IDS));
-        i.putExtra(AppCSTR.LAYOUT, layout);
+        i.putExtra(AppCSTR.LAYOUT, R.layout.activity_13p_2_attendance);
         startActivity(i);
         if(finish){
             finish();

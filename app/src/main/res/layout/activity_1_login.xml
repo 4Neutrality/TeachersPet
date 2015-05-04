@@ -5,15 +5,15 @@
 
     <!-- Header for Screen -->
     <TextView
-        android:id="@+id/header"
+        android:id="@+id/head_take_attn"
         style="@style/TextTitle"
-        android:text="@string/app_name"/>
+        android:text="@string/title_app_name"/>
     
     <!-- User Name Block -->
     <LinearLayout
         android:id="@+id/uname_block"
         style="@style/LinearInput"
-        android:layout_below="@id/header"
+        android:layout_below="@id/head_take_attn"
         android:layout_marginTop="@dimen/title_margin">
         <!-- User Name Entry -->
         <EditText

@@ -19,6 +19,7 @@ public class ShowGradesActivity extends BasicActivity {
     //Intent that passed data
     Intent i;
     String[] dataNeeded;
+    int layout;
 
     /**
      * When screen is created set to show layout.
@@ -29,7 +30,8 @@ public class ShowGradesActivity extends BasicActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_detail);
+        layout= R.layout.activity_show_detail;
+        setContentView(layout);
 
         i = getIntent();
         startSearch();
@@ -44,7 +46,7 @@ public class ShowGradesActivity extends BasicActivity {
         String[] dataPassed = new String[]{"cid", super.getCourseID(), "pos", i.getStringExtra(AppCSTR.SHOW_EXTRA)};
         dataNeeded = new String[]{"grade","name"};
 
-        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_STUDENT_GRADES, this, true);
+        sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_STUDENT_GRADES, this, layout, true);
     }
 
     /**

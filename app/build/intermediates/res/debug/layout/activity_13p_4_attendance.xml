@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BasicLayout"
+    tools:context="com.example.teacherspet.view.AttendancePRActivity" >
+
+    <!-- Header for Screen -->
+    <TextView
+        android:id="@+id/head_undo_r"
+        style="@style/TextTitle"
+        android:text="@string/title_undo_r"/>
+
+    <!-- Toplayout -->
+    <ListView
+        android:id="@+id/attnView"
+        android:layout_below="@id/head_undo_r"
+        android:layout_marginBottom="@dimen/bot_margin"
+        android:background="@color/trans"
+        android:fillViewport="true"
+        style="@style/BasicLayout"/>
+
+    <!-- Bottom Buttons -->
+    <LinearLayout
+        style="@style/LinearH"
+        android:background="@color/trans"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/bnt_undo"
+            style="@style/ActionButton"
+            android:text="@string/lbl_undo"
+            android:layout_weight="2"/>
+    </LinearLayout>
+
+</RelativeLayout>
+<!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/layout/activity_13p_4_attendance.xml -->

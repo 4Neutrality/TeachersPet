@@ -20,13 +20,13 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/title_app_name"
         android:theme="@style/AppTheme" >
 
         <!-- Control -->
         <activity
             android:name=".control.LoginActivity"
-            android:label="@string/app_name"
+            android:label="@string/title_app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
@@ -167,12 +167,6 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".model.Check920Activity"
-            android:label="@string/title_activity_check920"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
             android:name=".model.DeleteAlertActivity"
             android:label="@string/title_activity_delete_alert"
             android:screenOrientation="portrait"
@@ -191,6 +185,12 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
+            android:name=".model.UnRegisterATTN"
+            android:label="@string/title_activity_ATTN"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
             android:name=".model.SubmitATTN"
             android:label="@string/title_activity_ATTN"
             android:screenOrientation="portrait"
@@ -198,7 +198,7 @@
         </activity>
         <activity
             android:name=".view.SplashScreenActivity"
-            android:label="@string/app_name"
+            android:label="@string/title_app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -245,11 +245,33 @@
         </activity>
         <activity
             android:name=".model.GradeAssignmentActivity"
-            android:label="@string/title_activity_graded_assignment" >
+            android:label="@string/title_activity_graded_assignment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
             android:name=".model.TakeGradeActivity"
-            android:label="@string/title_activity_take_grade" >
+            android:label="@string/title_activity_take_grade"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".view.AttendancePScreenActivity"
+            android:label="@string/title_activity_attendance_pscreen"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".view.AttendancePSActivity"
+            android:label="@string/title_activity_attendance_ps"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".view.AttendancePRActivity"
+            android:label="@string/title_activity_attendance_pr"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
 

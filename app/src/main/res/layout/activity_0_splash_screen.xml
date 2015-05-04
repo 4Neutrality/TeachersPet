@@ -1,12 +1,24 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BasicLayout"
-    android:background="@color/purple"
+    android:weightSum="@string/weight"
+    android:background="@color/dk_purple"
+    android:orientation="vertical"
     tools:context="com.example.teacherspet.view.SplashScreenActivity">
 
     <TextView
+        android:layout_weight="2"
         android:text="@string/hello_teacher"
-        style="@style/TextCenterParent"
+        style="@style/TextTitle"
+        android:textSize="45sp"
+        android:layout_height="0dp"
+        android:background="@color/dk_purple"
         android:id="@+id/splash_title" />
 
-</RelativeLayout>
+    <ImageView
+        android:layout_weight="8"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_apple"
+        android:layout_width="fill_parent"/>
+
+</LinearLayout>

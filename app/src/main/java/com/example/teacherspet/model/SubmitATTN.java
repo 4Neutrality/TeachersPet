@@ -22,12 +22,10 @@ public class SubmitATTN extends BasicActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int layout = R.layout.activity_13p_attendance;
+        int layout = R.layout.activity_13p_2_attendance;
         String[] itemNames = new String[]{"cid"};
         String[] itemValues = new String[]{super.getCourseID()};
 
-        //Nothing needs to be pass or given back
-        String[] empty = new String[AppCSTR.SIZE_ZERO];
         super.sendData("", itemNames, itemValues, AppCSTR.URL_SUBMIT_ATTENDANCE, this, layout, false);
     }
 

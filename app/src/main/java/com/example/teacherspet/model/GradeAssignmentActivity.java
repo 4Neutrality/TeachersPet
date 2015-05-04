@@ -2,6 +2,7 @@ package com.example.teacherspet.model;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -62,6 +63,7 @@ public class GradeAssignmentActivity extends BasicActivity {
                     i.putExtra(AppCSTR.NAME, name);
                     i.putExtra(AppCSTR.CID, super.getCourseID());
                     i.putExtra(AppCSTR.POSITION, pos);
+                    Log.e("POS", "" + pos);
                     i.putExtra(AppCSTR.LAYOUT, layout);
                     i.putExtra(AppCSTR.GRADE, ((EditText) findViewById(R.id.grade)).getText().toString());
                     startActivity(i);
@@ -137,8 +139,7 @@ public class GradeAssignmentActivity extends BasicActivity {
                                        int position, long id) {
                 String[] details = extras[position].split("%");
                 maxPoints = Integer.parseInt(details[AppCSTR.FIRST_ELEMENT]);
-                position = position;
-                pos = position;
+                pos = position + 1;
                 String message = "Grade Total: " + details[AppCSTR.FIRST_ELEMENT] +
                         "\n\n Description: " + details[AppCSTR.SECOND_ELEMENT];
                 ((TextView) findViewById(R.id.gradeInfo)).setText(message);

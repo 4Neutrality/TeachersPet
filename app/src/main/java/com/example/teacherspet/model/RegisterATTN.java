@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.teacherspet.control.AttendancePActivity;
+
 import java.util.ArrayList;
 
 /**
@@ -92,6 +94,6 @@ public class RegisterATTN extends BasicActivity{
             }
         }
 
-        finish();
+        super.start(this, AttendancePActivity.class, true);
     }
 }

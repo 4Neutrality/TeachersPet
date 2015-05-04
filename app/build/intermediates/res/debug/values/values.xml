@@ -229,14 +229,13 @@
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="alphabet">abcdefghijklmnopqrstuvwxyz .,ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
-    <string name="app_name">Teacher\'s \t Pet</string>
     <string name="date">(23 September 2014)</string>
     <string name="hDue">Due Date</string>
     <string name="hGrade">HomeWork Grade</string>
     <string name="hName">HomeWork Name</string>
     <string name="hPost">Posted Date</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hello_teacher">Welcome to Teachers Pet!</string>
+    <string name="hello_teacher">Welcome to \n Teachers Pet!</string>
     <string name="hello_world">Hello world!</string>
     <string name="hsGrade">Student Grade</string>
     <string name="image_descript">Image to be displayed</string>
@@ -297,17 +296,21 @@
     <string name="lbl_student">Student\'s Name</string>
     <string name="lbl_students">Students</string>
     <string name="lbl_submit">Submit</string>
+    <string name="lbl_take">Take ATTN</string>
     <string name="lbl_teacher">Teacher</string>
     <string name="lbl_term">Select Term</string>
     <string name="lbl_thursday">Thursday</string>
     <string name="lbl_time">Time</string>
     <string name="lbl_tuesday">Tuesday</string>
+    <string name="lbl_undo">UNDO</string>
+    <string name="lbl_undo_r">Undo Register</string>
+    <string name="lbl_undo_s">Undo ATTN</string>
     <string name="lbl_update">Update</string>
     <string name="lbl_upload">Upload</string>
     <string name="lbl_wednesday">Wednesday</string>
     <string name="lbl_yes">Yes</string>
-    <string name="student_login">Fred</string>
-    <string name="student_login2">tail</string>
+    <string name="student_login">andrew scott</string>
+    <string name="student_login2">kippers</string>
     <string name="title_activity_ATTN">Attendance</string>
     <string name="title_activity_add_assignment">AddAssignmentActivity</string>
     <string name="title_activity_add_comment">AddCommentActivity</string>
@@ -317,6 +320,9 @@
     <string name="title_activity_alerts">AlertsActivity</string>
     <string name="title_activity_assignments">AssignmentsActivity</string>
     <string name="title_activity_attendance">AttendanceActivity</string>
+    <string name="title_activity_attendance_pr">AttendancePRActivity</string>
+    <string name="title_activity_attendance_ps">AttendancePSActivity</string>
+    <string name="title_activity_attendance_pscreen">AttendancePScreenActivity</string>
     <string name="title_activity_check920">Check920Activity</string>
     <string name="title_activity_course">CourseActivity</string>
     <string name="title_activity_courses">CoursesActivity</string>
@@ -348,7 +354,12 @@
     <string name="title_activity_students">StudentsActivity</string>
     <string name="title_activity_take_grade">TakeGradeActivity</string>
     <string name="title_alert">Alert</string>
+    <string name="title_app_name">Teacher\'s \t Pet</string>
+    <string name="title_attn">Attendance</string>
     <string name="title_grades">Name Grade Complete Tardy</string>
+    <string name="title_take_attn">Take Attendance</string>
+    <string name="title_undo_r">Undo Register</string>
+    <string name="title_undo_s">Undo Attendance</string>
     <string name="weight">10</string>
     <!-- From: file:/E:/JC_Computer/Teachers_Pet/TeacherPet/app/src/main/res/values/styles.xml -->
     <eat-comment/>

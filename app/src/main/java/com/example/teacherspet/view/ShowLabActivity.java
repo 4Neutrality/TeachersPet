@@ -28,6 +28,7 @@ public class ShowLabActivity extends BasicActivity implements AdapterView.OnItem
     //Intent that is passing data
     Intent i;
     String[] dataNeeded;
+    int layout;
 
     /**
      * When screen is created set to lab layout.
@@ -37,7 +38,8 @@ public class ShowLabActivity extends BasicActivity implements AdapterView.OnItem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_18_2_lab);
+        int layout = R.layout.activity_18_2_lab;
+        setContentView(layout);
 
         i = getIntent();
         //Set title
@@ -63,7 +65,7 @@ public class ShowLabActivity extends BasicActivity implements AdapterView.OnItem
                                            "lid", i.getStringExtra(AppCSTR.SHOW_LAB_ID)};
         dataNeeded = new String[]{"name","descript"};
 
-        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_COMMENTS, this, true);
+        super.sendData(tag, dataPassed, dataNeeded, AppCSTR.URL_FIND_COMMENTS, this, layout, true);
     }
 
     /**

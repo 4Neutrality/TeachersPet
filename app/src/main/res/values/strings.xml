@@ -6,7 +6,7 @@
     <string name="lbl_register">Register</string>
     <string name="lbl_delete">Delete</string>
     <string name="lbl_upload">Upload</string>
-    <string name="app_name">Teacher\'s \t Pet</string>
+    <string name="title_app_name">Teacher\'s \t Pet</string>
     <string name="lbl_enter_username">Enter Username</string>
     <string name="lbl_enter_pwd">Enter Password</string>
     <string name="lbl_login">Login</string>
@@ -82,6 +82,14 @@
     <!-- *******************************ATTENDANCE****************************************** -->
     <string name="lbl_not_logged">Not Logged In</string>
     <string name="lbl_logged">Logged In</string>
+    <string name="title_take_attn">Take Attendance</string>
+    <string name="title_undo_s">Undo Attendance</string>
+    <string name="title_undo_r">Undo Register</string>
+    <string name="title_attn">Attendance</string>
+    <string name="lbl_take">Take ATTN</string>
+    <string name="lbl_undo_s">Undo ATTN</string>
+    <string name="lbl_undo_r">Undo Register</string>
+    <string name="lbl_undo">UNDO</string>
 
     <!-- *******************************COURSES****************************************** -->
     <string name="lbl_CS496">CS496</string>
@@ -140,8 +148,8 @@
     <string name="title_activity_students">StudentsActivity</string>
 
     <!-- *******************************LOGIN****************************************** -->
-    <string name="student_login">Fred</string>
-    <string name="student_login2">tail</string>
+    <string name="student_login">andrew scott</string>
+    <string name="student_login2">kippers</string>
 
     <string-array name="login_array">
         <item>student</item>
@@ -150,7 +158,7 @@
 
     <string name="lbl_newUser">New User</string>
     <string name="lbl_forgot">Forgot Login</string>
-    <string name="hello_teacher">Welcome to Teachers Pet!</string>
+    <string name="hello_teacher">Welcome to \n Teachers Pet!</string>
     <string name="title_activity_home_">Home_Activity</string>
 
     <!-- *******************************NEW USER****************************************** -->
@@ -206,5 +214,8 @@
     <string name="title_activity_day_schedule">DayScheduleActivity</string>
     <string name="title_activity_graded_assignment">GradedAssignmentActivity</string>
     <string name="title_activity_take_grade">TakeGradeActivity</string>
+    <string name="title_activity_attendance_pscreen">AttendancePScreenActivity</string>
+    <string name="title_activity_attendance_ps">AttendancePSActivity</string>
+    <string name="title_activity_attendance_pr">AttendancePRActivity</string>
 
 </resources>
